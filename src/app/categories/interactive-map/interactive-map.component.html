@@ -1,0 +1,509 @@
+<div class="color">
+  <div class="container-for-header default__padding">
+    <div
+      class="col-12 row plpr"
+      style="
+        display: flex !important;
+        justify-content: space-between !important;
+      "
+    >
+      <div class="col-lg-3">
+        <div class="col-12 shortSelectCont">
+          <div
+            class="col-12 fontForSelectUpperTitle"
+            style="padding-top: 35px; padding-left: 32px"
+          >
+            {{ "interactive.vType" | translate }}
+          </div>
+          <div class="col-12 row">
+            <div class="col-2">
+              <img
+                style="padding-left: 19px; padding-top: 30px"
+                src="assets/c-default-indicators/TourismType.png"
+                alt=""
+              />
+            </div>
+            <div
+              class="col-9 fontForSelectTitle"
+              style="padding-left: 25px; padding-top: 35px; white-space: nowrap"
+            >
+              <select
+                class="w13"
+                [(ngModel)]="vTypeSelect"
+                (change)="selectvTypeChange()"
+                style="
+                  background: url(assets/c-default-indicators/Down.png)
+                    no-repeat right transparent;
+                "
+              >
+                <option
+                  *ngFor="let datas of vTypes"
+                  [label]="datas.name"
+                  [value]="datas.value"
+                ></option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-9 d-flex plpr" style="justify-content: end">
+        <div class="col-12 row contForSelects">
+          <div class="col-lg-2">
+            <div
+              class="col-12 fontForSelectUpperTitle"
+              style="padding-top: 35px"
+            >
+              {{ "interactive.year" | translate }}
+            </div>
+            <div class="col-12 row">
+              <div class="col-2">
+                <img
+                  style="padding-top: 30px"
+                  src="assets/c-default-indicators/Calendar.png"
+                  alt=""
+                />
+              </div>
+              <div
+                class="col-9 fontForSelectTitle"
+                style="
+                  padding-left: 25px;
+                  padding-top: 35px;
+                  white-space: nowrap;
+                "
+              >
+                <select
+                  name="my-select"
+                  [(ngModel)]="yearSelect"
+                  (change)="selectYearChange()"
+                  aria-label="Default select example"
+                  id="select"
+                  class="w14"
+                  style="
+                    background: url(assets/c-default-indicators/Down.png)
+                      no-repeat right transparent;
+                  "
+                >
+                  <option
+                    [label]="datas.value"
+                    *ngFor="let datas of yearsOptions"
+                    [value]="datas.value"
+                  ></option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3">
+            <div
+              class="col-12 fontForSelectUpperTitle"
+              style="padding-top: 35px"
+            >
+              {{ "interactive.quarter" | translate }}
+            </div>
+            <div class="col-12 row">
+              <div class="col-2">
+                <img
+                  style="padding-top: 30px"
+                  src="assets/c-compare-indicators/Quarter.png"
+                  alt=""
+                />
+              </div>
+              <div
+                class="col-9 fontForSelectTitle"
+                style="
+                  padding-left: 15px;
+                  padding-top: 35px;
+                  white-space: nowrap;
+                "
+              >
+                <select
+                  name="my-select"
+                  [(ngModel)]="quarterSelect"
+                  (change)="selectQuarterChange()"
+                  aria-label="Default select example"
+                  id="select"
+                  class="w10"
+                  style="
+                    background: url(assets/c-default-indicators/Down.png)
+                      no-repeat right transparent;
+                  "
+                >
+                  <option
+                    [label]="datas.name"
+                    *ngFor="let datas of quarters"
+                    [value]="datas.value"
+                  >
+                    {{ datas.name }}
+                  </option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-2">
+            <div
+              class="col-12 fontForSelectUpperTitle"
+              style="padding-top: 35px"
+            >
+              {{ "interactive.month" | translate }}
+            </div>
+            <div class="col-12 row">
+              <div class="col-2">
+                <img
+                  style="padding-top: 30px"
+                  src="assets/c-interactive-map/Month.png"
+                  alt=""
+                />
+              </div>
+              <div
+                class="col-9 fontForSelectTitle"
+                style="
+                  padding-left: 20px;
+                  padding-top: 35px;
+                  white-space: nowrap;
+                "
+              >
+                <select
+                  name="my-select"
+                  [(ngModel)]="monthSelect"
+                  (change)="selectMonthChange()"
+                  aria-label="Default select example"
+                  id="select"
+                  class="w12"
+                  style="
+                    background: url(assets/c-default-indicators/Down.png)
+                      no-repeat right transparent;
+                  "
+                >
+                  <option
+                    [label]="datas.name"
+                    *ngFor="let datas of monthsOptions"
+                    [value]="datas.value"
+                  >
+                    {{ datas.name }}
+                  </option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-2">
+            <div
+              class="col-12 fontForSelectUpperTitle"
+              style="padding-top: 35px"
+            >
+              {{ "interactive.gender" | translate }}
+            </div>
+            <div class="col-12 row">
+              <div class="col-2">
+                <img
+                  style="padding-top: 30px"
+                  src="assets/c-seasonal/Gender.png"
+                  alt=""
+                />
+              </div>
+              <div
+                class="col-9 fontForSelectTitle"
+                style="
+                  padding-left: 25px;
+                  padding-top: 35px;
+                  white-space: nowrap;
+                "
+              >
+                <select
+                  name="my-select-2"
+                  [(ngModel)]="genderSelect"
+                  (change)="selectGenderChange()"
+                  aria-label="Default select example"
+                  id="select"
+                  class="w18"
+                  style="
+                    background: url(assets/c-default-indicators/Down.png)
+                      no-repeat right transparent;
+                  "
+                >
+                  <option
+                    [label]="datas.name"
+                    *ngFor="let datas of genders"
+                    [value]="datas.value"
+                  >
+                    {{ datas.value }}
+                  </option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3">
+            <div
+              class="col-12 fontForSelectUpperTitle"
+              style="padding-top: 35px"
+            >
+              {{ "interactive.age" | translate }}
+            </div>
+            <div class="col-12 row">
+              <div class="col-2">
+                <img
+                  style="padding-top: 30px"
+                  src="assets/c-seasonal/Age.png"
+                  alt=""
+                />
+              </div>
+              <div
+                class="col-9 fontForSelectTitle"
+                style="
+                  padding-left: 25px;
+                  padding-top: 35px;
+                  white-space: nowrap;
+                "
+              >
+                <select
+                  name="my-select"
+                  [(ngModel)]="ageSelect"
+                  (change)="selectAgeChange()"
+                  aria-label="Default select example"
+                  id="select"
+                  class="w12"
+                  style="
+                    background: url(assets/c-default-indicators/Down.png)
+                      no-repeat right transparent;
+                  "
+                >
+                  <option
+                    [label]="datas.name"
+                    *ngFor="let datas of agesOptions"
+                    [value]="datas.value"
+                  >
+                    {{ datas.name }}
+                  </option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-12 row mt-4 plpr" style="margin: 1.5rem 0 0 !important">
+      <div class="col-lg-8 col-sm-12" style="padding-left: 0 !important">
+        <div
+          class="col-12"
+          style="
+            width: 100%;
+            height: 600px;
+            background: #f3f4fb;
+            border-radius: 20px;
+          "
+        >
+          <div id="chartdiv" style="height: 74%" class="mChart"></div>
+          <div
+            class="form-group"
+            style="width: 100%; height: 50px; margin-top: 50px"
+          >
+            <div class="row pl-2">
+              <div class="col-1">
+                <mat-icon
+                  (click)="onPlayClick()"
+                  class="icon-display mt-3"
+                  style="
+                    cursor: pointer;
+                    width: 10px;
+                    height: 10px;
+                    background-size: 10px;
+                    background-position: center;
+                    background-image: url(../../../assets/img/categories/play.png);
+                  "
+                ></mat-icon>
+              </div>
+              <div class="col-11">
+                <mat-slider
+                  thumbLabel
+                  [min]="sliderLowestVal"
+                  [max]="sliderHighestVal"
+                  [step]="1"
+                  ngDefaultControl
+                  [(ngModel)]="sliderValue"
+                  (ngModelChange)="OnSliderValueChanged($event)"
+                >
+                </mat-slider>
+              </div>
+            </div>
+            <p class="note" style="margin-top: 5px !important">
+              {{ "note.interactiveMap" | translate }}
+            </p>
+            <p class="note" *ngIf="georgiaSelected">
+              {{ this.georgiaText }}
+            </p>
+          </div>
+          <div>
+            <mat-radio-group>
+              <mat-radio-button
+                (click)="offPerNight()"
+                (click)="getCountriesList()"
+                type="radio"
+                value="visits"
+                checked
+                >{{
+                  "interactive.vCount" | translate
+                }}&nbsp;&nbsp;</mat-radio-button
+              >
+              <mat-radio-button
+                (click)="onPerNight()"
+                (click)="getCountriesListNights()"
+                type="radio"
+                value="nights"
+                >{{ "interactive.avarigeNights" | translate }}</mat-radio-button
+              >
+            </mat-radio-group>
+          </div>
+        </div>
+        <div
+          class="col-12 mt-5"
+          style="
+            width: 100%;
+            height: 462px;
+            background: #ffffff;
+            box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.1);
+            border-radius: 20px;
+          "
+        >
+          <div class="chart__title">
+            <p>{{ chartName }}</p>
+
+            <img src="{{ countryImg }}" width="30px" />
+          </div>
+          <div id="chartdiv2" style="height: 90%"></div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 plpr">
+        <div class="col-12">
+          <div
+            style="
+              overflow: auto;
+              height: 1161px;
+              border-radius: 20px 20px 0px 0px;
+              margin-right: -13px;
+              margin-left: -15px;
+              overflow-x: hidden;
+            "
+            class="d"
+          >
+            <table class="table w3-striped w3-hoverable">
+              <thead class="inputsParent">
+                <tr class="tableTitle">
+                  <th
+                    class="centerTitles"
+                    scope="col"
+                    rowspan="2"
+                    style="
+                      height: 91px;
+                      background: #5c4fc9;
+                      box-shadow: 0px 4px 50px 5px rgba(0, 0, 0, 0.06);
+                      text-align: center;
+                    "
+                    (click)="sortCountryes()"
+                  >
+                    {{ "interactive.country" | translate }}
+                    <br />
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      fill="currentColor"
+                      class="bi bi-arrow-down-up"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M11.5 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L11 2.707V14.5a.5.5 0 0 0 .5.5zm-7-14a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L4 13.293V1.5a.5.5 0 0 1 .5-.5z"
+                      />
+                    </svg>
+                  </th>
+                  <th
+                    class="text-center centerTitles"
+                    scope="col"
+                    style="
+                      height: 91px;
+                      background: #323c95;
+                      box-shadow: 0px 4px 50px 5px rgba(0, 0, 0, 0.06);
+                    "
+                    (click)="sortDataVisits()"
+                  >
+                    {{ "interactive.visits" | translate }}
+                    <br />
+
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      fill="currentColor"
+                      class="bi bi-arrow-down-up mx-3"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M11.5 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L11 2.707V14.5a.5.5 0 0 0 .5.5zm-7-14a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L4 13.293V1.5a.5.5 0 0 1 .5-.5z"
+                      />
+                    </svg>
+                  </th>
+
+                  <th
+                    class="text-center centerTitles"
+                    scope="col"
+                    style="
+                      height: 91px;
+                      background: #161f6a;
+                      box-shadow: 0px 4px 50px 5px rgba(0, 0, 0, 0.06);
+                    "
+                    (click)="sortDataNights()"
+                  >
+                    {{ "interactive.avarigeNights" | translate }}
+                    <br />
+
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      fill="currentColor"
+                      class="bi bi-arrow-down-up"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M11.5 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L11 2.707V14.5a.5.5 0 0 0 .5.5zm-7-14a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L4 13.293V1.5a.5.5 0 0 1 .5-.5z"
+                      />
+                    </svg>
+                  </th>
+                </tr>
+                <tr></tr>
+              </thead>
+              <tbody class="overflow-y: scroll;">
+                <input
+                  class="inputForCountrySearch"
+                  type="text"
+                  name="search"
+                  [(ngModel)]="searchText"
+                  autocomplete="off"
+                  placeholder="{{ 'interactive.searchcountry' | translate }}"
+                  autofocus
+                />
+
+                <tr
+                  (click)="SelectCountryData(rs.countryId); georgiaOrNot(rs.countryId)"
+                  *ngFor="let rs of dataForTable | filter : searchText"
+                >
+                  <th [id]="rs.countryId + '1'">{{ rs.countryNameGe }}</th>
+                  <td style="text-align: right" [id]="rs.countryId + '2'">
+                    {{ formatThousands(rs.visits) }}
+                  </td>
+
+                  <td style="text-align: right" [id]="rs.countryId + '3'">
+                    {{ rs.avarNights | number : "1.0-1" }}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="col-12" style="height: 100px"></div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,214 @@
+<div class="backgroundImg">
+  <div class="default__padding">
+    <section class="indicators__and__mainChart">
+      <div class="wrapper__indicators">
+        <div class="cont__indicators">
+          <div class="title__indicator">
+            <img
+              src="assets/c-default-indicators/Calendar.png"
+              alt="statistics"
+            />
+            <select
+              style="
+                background: url(assets/c-default-indicators/Down.png) no-repeat
+                  right transparent;
+                width: 60px;
+                background-size: 15px;
+              "
+              (change)="yearChange()"
+              [(ngModel)]="year"
+            >
+              <option *ngFor="let data of years" value="{{ data }}">
+                {{ data }}
+              </option>
+            </select>
+          </div>
+        </div>
+        <div class="cont__indicators">
+          <div class="title__indicator fontForCheckboxesTitle">
+            <img
+              class="firstImgPositionForInputs"
+              src="assets/ht-default-indicators/Vector.png"
+              alt="statistics"
+            />
+            <p>{{ "keyindic.indic" | translate }}</p>
+          </div>
+
+          <div class="indicators">
+            <div class="indicator">
+              <input
+                type="radio"
+                id="HotelsAmount"
+                name="radioSelect"
+                value="HotelsAmount"
+                checked
+                (click)="hotel()"
+              />
+              <label class="fontForCheckboxes" for="HotelsAmount">{{
+                "keyindic.hotelCount" | translate
+              }}</label>
+            </div>
+            <div class="indicator">
+              <input
+                type="radio"
+                id="VisitorsAmount"
+                name="radioSelect"
+                value="VisitorsAmount"
+                (click)="guest()"
+              />
+              <label class="fontForCheckboxes" for="VisitorsAmount">{{
+                "keyindic.guestCount" | translate
+              }}</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="cont__indicators">
+          <div class="title__indicator">
+            <img
+              class="firstImgPositionForInputs"
+              src="assets/ht-default-indicators/ra.png"
+              alt="location"
+            />
+            <div class="fontForCheckboxesTitle">
+              {{ "keyindic.regs" | translate }}
+            </div>
+          </div>
+          <div class="indicators">
+            <div class="indicator">
+              <input
+                type="checkbox"
+                id="All"
+                name="All"
+                value="0"
+                [checked]="true"
+                (change)="checkUncheckAll($event)"
+              />
+              <label class="fontForCheckboxes" for="All">{{
+                "keyindic.def" | translate
+              }}</label
+              ><br />
+            </div>
+
+            <div
+              class="indicator"
+              *ngFor="let reg of regions"
+              [(ngModel)]="region"
+              id="checkDiv"
+            >
+              <input
+                type="checkbox"
+                id="{{ reg.name }}"
+                name="{{ reg.name }}"
+                value="{{ reg.value }}"
+                (change)="addRemoveRegion()"
+              />
+              <label class="fontForCheckboxes" for="{{ reg.name }}"
+                >{{ reg.name }}
+              </label>
+              <br />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cnt__main__chart">
+        <div class="chart__title">{{ sankyChart }}</div>
+        <div class="main__chart" id="chartMain"></div>
+      </div>
+    </section>
+    <section class="other__charts">
+      <div
+        class="cnt__other__charts"
+        [ngClass]="status === 1 ? 'chart__zoomed' : ''"
+      >
+        <p class="FontForChartTitles">
+          {{ "keyindic.hotelsChartTitle" | translate }}
+        </p>
+        <i class="zoom__icon zoom__in" (click)="clickEvent(1)"></i>
+        <i
+          class="zoom__icon zoom__out"
+          style="display: none"
+          (click)="clickEvent(0)"
+        ></i>
+        <div class="other__chart" id="chartHotelCount"></div>
+      </div>
+      <div
+        class="cnt__other__charts"
+        [ngClass]="status === 2 ? 'chart__zoomed' : ''"
+      >
+        <p class="FontForChartTitles">
+          {{ "keyindic.roomsChartTitle" | translate }}
+        </p>
+        <i class="zoom__icon zoom__in" (click)="clickEvent(2)"></i>
+        <i
+          class="zoom__icon zoom__out"
+          style="display: none"
+          (click)="clickEvent(0)"
+        ></i>
+        <div class="other__chart" id="chartBadRoom"></div>
+      </div>
+      <div
+        class="cnt__other__charts"
+        [ngClass]="status === 3 ? 'chart__zoomed' : ''"
+      >
+        <p class="FontForChartTitles">
+          {{ "keyindic.guestsChartTitle" | translate }}
+        </p>
+        <i class="zoom__icon zoom__in" (click)="clickEvent(3)"></i>
+        <i
+          class="zoom__icon zoom__out"
+          style="display: none"
+          (click)="clickEvent(0)"
+        ></i>
+        <div class="other__chart" id="chartGestCount"></div>
+      </div>
+
+      <div
+        class="cnt__other__charts"
+        [ngClass]="status === 4 ? 'chart__zoomed' : ''"
+      >
+        <p class="FontForChartTitles">
+          {{ "keyindic.incomsChartTitle" | translate }}
+        </p>
+        <i class="zoom__icon zoom__in" (click)="clickEvent(4)"></i>
+        <i
+          class="zoom__icon zoom__out"
+          style="display: none"
+          (click)="clickEvent(0)"
+        ></i>
+        <div class="other__chart" id="chartRevenue"></div>
+      </div>
+      <div
+        class="cnt__other__charts"
+        [ngClass]="status === 5 ? 'chart__zoomed' : ''"
+      >
+        <p class="FontForChartTitles">
+          {{ "keyindic.emploeeChartTitle" | translate }}
+        </p>
+        <i class="zoom__icon zoom__in" (click)="clickEvent(5)"></i>
+        <i
+          class="zoom__icon zoom__out"
+          style="display: none"
+          (click)="clickEvent(0)"
+        ></i>
+        <div class="other__chart" id="chartGender"></div>
+      </div>
+      <div
+        class="cnt__other__charts"
+        [ngClass]="status == 6 ? 'chart__zoomed' : ''"
+      >
+        <p class="FontForChartTitles">
+          {{ "keyindic.expenceChartTitle" | translate }}
+        </p>
+        <i class="zoom__icon zoom__in" (click)="clickEvent(6)"></i>
+        <i
+          class="zoom__icon zoom__out"
+          style="display: none"
+          (click)="clickEvent(0)"
+        ></i>
+        <div class="other__chart" id="chartCoast"></div>
+      </div>
+    </section>
+  </div>
+</div>

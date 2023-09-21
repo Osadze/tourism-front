@@ -1,0 +1,20 @@
+@import "../top15/top15.component.scss";
+
+.top10BT {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start !important;
+  p {
+    text-align: start;
+    font-size: 1.25rem;
+    line-height: 38px;
+    color: #3d3d3e;
+  }
+}
+
+@media (max-width: 1600px) {
+  .chartDiv {
+    width: 100%;
+  }
+}

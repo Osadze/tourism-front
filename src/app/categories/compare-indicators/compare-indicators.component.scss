@@ -1,0 +1,233 @@
+.btn {
+  height: 50px;
+}
+
+.btnd {
+  width: -webkit-fill-available;
+}
+
+.grp {
+  margin-top: -100px;
+  width: 200px;
+}
+
+.grdz {
+  margin-left: 50px;
+}
+
+.FontForChartTitles {
+  font-size: 18px;
+  line-height: 24px;
+  color: #3d3d3e;
+  padding-bottom: 30px;
+  text-align: left;
+}
+
+.fontForCheckboxesTitle {
+  font-family: "FiraGO";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  font-variant: small-caps;
+
+  color: #929497;
+}
+
+.fontForCheckboxes {
+  font-family: "FiraGO";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 14px;
+  font-variant: small-caps;
+
+  color: #3d3d3e;
+}
+
+.not-selected-button {
+  border: none;
+  background: none;
+
+  font-family: "FiraGO";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 38px;
+  /* or 238% */
+
+  text-align: center;
+  font-variant: small-caps;
+  font-feature-settings: "case" on;
+
+  color: #51459f;
+  width: 303px;
+  height: 72px;
+  background: rgba(255, 126, 174, 0.05);
+  box-shadow: 0px 4px 30px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  border: none;
+}
+
+.acti {
+  color: #ffffff;
+
+  background: #51459f;
+  box-shadow: 0px 4px 30px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+}
+
+.fontForChartTitlee {
+  font-family: "FiraGO";
+  font-style: normal;
+  font-weight: 500;
+  white-space: nowrap;
+  line-height: 24px;
+  padding-top: 170px;
+  text-align: right;
+  /* or 150% */
+
+  text-align: right;
+  font-variant: small-caps;
+
+  color: #3d3d3e;
+}
+
+.fontForChartTitle {
+  font-family: "FiraGO";
+  font-style: normal;
+  font-weight: 500;
+  white-space: nowrap;
+  line-height: 24px;
+  padding-top: 48px;
+  text-align: right;
+  /* or 150% */
+
+  text-align: right;
+  font-variant: small-caps;
+
+  color: #3d3d3e;
+}
+
+.jont {
+  font-family: "FiraGO";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 24px;
+  /* or 171% */
+
+  text-align: center;
+  font-variant: small-caps;
+
+  color: #3d3d3e;
+  flex: 1;
+}
+
+.color {
+  background-color: #f9fbff;
+}
+
+.contForSelectBox {
+  width: 100%;
+  height: 133px;
+  background: #f9fbff;
+  border: 0.25px solid #2330a4;
+  box-shadow: 0px 4px 35px 10px rgba(0, 0, 0, 0.05);
+  border-radius: 20px;
+}
+
+.bigTitle {
+  font-family: "FiraGO";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 38px;
+  font-variant: small-caps;
+  font-feature-settings: "case" on;
+  color: #3d3d3e;
+}
+
+.contForAquaButtons {
+  width: 100%;
+  height: 750px;
+  background-color: #f9fbff;
+  border-radius: 25px;
+}
+
+.descrisCont {
+  width: 100%;
+  height: 370px;
+  background: rgba(243, 241, 255, 0.5);
+  border-radius: 20px;
+}
+.compareIcon {
+  display: block;
+  width: 50px;
+  height: 50px;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  border-radius: 10px;
+}
+
+.blueButtons {
+  border: none;
+  display: flex;
+  align-items: center;
+  // justify-content: center;
+  gap: 15px;
+  width: 271px;
+  height: 72px;
+
+  background: #ffffff;
+  border-radius: 15px;
+}
+
+.fontForBlueButtons {
+  font-family: "FiraGO";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 38px;
+  /* or 173% */
+
+  font-variant: small-caps;
+  font-feature-settings: "case" on;
+  text-align: left;
+  color: #2330a4;
+  padding-bottom: 30px;
+}
+
+.titleForBlueButtons {
+  font-family: "FiraGO";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1.125rem;
+  /* or 238% */
+  text-align: left;
+  font-variant: small-caps;
+  font-feature-settings: "case" on;
+  color: #3d3d3e;
+}
+.switchButtons {
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1265px) {
+  .inRegionButton {
+    margin-left: 70px;
+  }
+}
+
+@media only screen and (min-width: 0px) and (max-width: 991px) {
+  .switchButtons {
+    text-align: center;
+  }
+  .descriptionOfChartColumns {
+    display: none;
+  }
+  .mTopResponsive {
+    margin-top: 5%;
+  }
+}

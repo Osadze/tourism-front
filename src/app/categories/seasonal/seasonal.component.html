@@ -1,0 +1,400 @@
+<div
+  [style.background-image]="'url(/src/assets/background-images/sesonal.png)'"
+>
+  <div class="backgroundImg">
+    <div class="container-for-header default__padding pt-4">
+      <div
+        class="row"
+        style="margin-right: 0 !important; margin-left: 0 !important"
+      >
+        <div class="col-lg-2 contForFirstSelect">
+          <div
+            class="col-12 fontForSelectUpperTitle"
+            style="padding-top: 35px; padding-left: 32px"
+          >
+            {{ "sesonal.tType" | translate }}
+          </div>
+
+          <div class="col-12 row">
+            <div class="col-2">
+              <img
+                style="padding-top: 30px"
+                src="assets/c-default-indicators/VisitType.png"
+                alt=""
+              />
+            </div>
+            <div
+              class="col-9 fontForSelectTitle"
+              style="padding-top: 35px; white-space: nowrap"
+            >
+              <select
+                [(ngModel)]="tType"
+                (change)="selecttTypeChange()"
+                style="
+                  background: url(assets/c-default-indicators/Down.png)
+                    no-repeat right transparent;
+                  width: 210px;
+                "
+              >
+                <option *ngFor="let type of tTypes" value="{{ type.value }}">
+                  {{ type.name }}
+                </option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="row col-lg-9 contForSelects">
+          <div class="col-lg-3">
+            <div
+              class="col-12 fontForSelectUpperTitle"
+              style="padding-top: 35px"
+            >
+              {{ "sesonal.vType" | translate }}
+            </div>
+            <div class="col-12 row">
+              <div class="col-2">
+                <img
+                  style="padding-top: 30px"
+                  src="assets/c-default-indicators/VisitType.png"
+                  alt=""
+                />
+              </div>
+              <div
+                class="col-9 fontForSelectTitle"
+                style="padding-top: 35px; white-space: nowrap"
+              >
+                <select
+                  [(ngModel)]="vType"
+                  (change)="selectvTypeChange()"
+                  style="
+                    background: url(assets/c-default-indicators/Down.png)
+                      no-repeat right transparent;
+                    width: 190px;
+                  "
+                >
+                  <option
+                    *ngFor="let visit of vTypes"
+                    value="{{ visit.value }}"
+                  >
+                    {{ visit.name }}
+                  </option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3">
+            <div
+              class="col-12 fontForSelectUpperTitle"
+              style="padding-top: 35px"
+            >
+              {{ "sesonal.gender" | translate }}
+            </div>
+            <div class="col-12 row">
+              <div class="col-2">
+                <img
+                  style="padding-top: 30px"
+                  src="assets/c-seasonal/Gender.png"
+                  alt=""
+                />
+              </div>
+              <div
+                class="col-9 fontForSelectTitle"
+                style="
+                  padding-left: 25px;
+                  padding-top: 35px;
+                  white-space: nowrap;
+                "
+              >
+                <select
+                  [(ngModel)]="gender"
+                  (change)="selectGenderChange()"
+                  style="
+                    background: url(assets/c-default-indicators/Down.png)
+                      no-repeat right transparent;
+                    width: 135px;
+                  "
+                >
+                  <option *ngFor="let gen of genders" value="{{ gen.value }}">
+                    {{ gen.name }}
+                  </option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3">
+            <div
+              class="col-12 fontForSelectUpperTitle"
+              style="padding-top: 35px"
+            >
+              {{ "sesonal.age" | translate }}
+            </div>
+            <div class="col-12 row">
+              <div class="col-2">
+                <img
+                  style="padding-top: 30px"
+                  src="assets/c-seasonal/Age.png"
+                  alt=""
+                />
+              </div>
+              <div
+                class="col-9 fontForSelectTitle"
+                style="
+                  padding-left: 25px;
+                  padding-top: 35px;
+                  white-space: nowrap;
+                "
+              >
+                <select
+                  [(ngModel)]="age"
+                  (change)="selectAgeChange()"
+                  style="
+                    background: url(assets/c-default-indicators/Down.png)
+                      no-repeat right transparent;
+                    width: 80px;
+                  "
+                >
+                  <option *ngFor="let ag of ages" value="{{ ag.value }}">
+                    {{ ag.name }}
+                  </option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3">
+            <div
+              class="col-12 fontForSelectUpperTitle"
+              style="padding-top: 35px"
+            >
+              {{ "sesonal.nationaliti" | translate }}
+            </div>
+            <div class="col-12 row">
+              <div class="col-2">
+                <img
+                  style="padding-top: 30px"
+                  src="assets/c-seasonal/Citizenship.png"
+                  alt=""
+                />
+              </div>
+              <div
+                class="col-9 fontForSelectTitle"
+                style="
+                  padding-left: 25px;
+                  padding-top: 35px;
+                  white-space: nowrap;
+                "
+              >
+                <select
+                  *ngIf="tType == 1"
+                  [(ngModel)]="country"
+                  (change)="selectCountriesChange()"
+                  style="
+                    background: url(assets/c-default-indicators/Down.png)
+                      no-repeat right transparent;
+                    width: 145px;
+                  "
+                >
+                  <option value="">{{ "sesonal.all" | translate }}</option>
+                  <option *ngFor="let cntr of countryes" value="{{ cntr }}">
+                    {{ cntr }}
+                  </option>
+                </select>
+                <select
+                  *ngIf="tType != 1"
+                  disabled
+                  [(ngModel)]="country"
+                  (change)="selectCountriesChange()"
+                  style="width: 135px"
+                >
+                  <option value="">{{ "sesonal.all" | translate }}</option>
+                  <option *ngFor="let cntr of countryes" value="{{ cntr }}">
+                    {{ cntr }}
+                  </option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-12 mt-5 plpr">
+        <div
+          class="col-lg-12 contForFirstChart plpr pb-4"
+          style="
+            width: 100%;
+            height: 721px;
+            background: #ffffff;
+            box-shadow: 0px 4px 50px 5px rgba(0, 0, 0, 0.06);
+            border-radius: 20px;
+          "
+        >
+          <div
+            style="
+              padding-top: 20px;
+              font-family: FiraGO;
+              font-style: normal;
+              font-weight: 500;
+              font-size: 24px;
+              line-height: 38px;
+              font-variant: small-caps;
+              font-feature-settings: 'case' on;
+              color: #3d3d3e;
+              padding-left: 50px;
+            "
+          >
+            {{ titleForChart }}
+          </div>
+          <div class="div" id="chart" style="height: 88%; width: 100%"></div>
+          <div class="">
+            <mat-radio-group class="ml-3" aria-label="Select an option">
+              <mat-radio-button
+                value="1"
+                checked
+                (change)="getSeasonalPerc()"
+                (click)="change1()"
+                >{{ "sesonal.distribution" | translate }}</mat-radio-button
+              >
+              <mat-radio-button
+                class="ml-3"
+                value="2"
+                (change)="getSeasonalPerc()"
+                (click)="change2()"
+                selected
+                >{{ "sesonal.percentage" | translate }}</mat-radio-button
+              >
+            </mat-radio-group>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-12" style="height: 90px"></div>
+    </div>
+  </div>
+</div>
+
+<!-- OLD CODE START -->
+
+<!-- <div [style.background-image]="'url(/src/assets/background-images/sesonal.png)'">
+  <div class="backgroundImg">
+    <div class="container-for-header default__padding pt-4">
+      <div class="row">
+        <div class="col-lg-2 contForFirstSelect">
+          <div class="col-12 fontForSelectUpperTitle" style="padding-top: 35px; padding-left: 32px">{{ 'sesonal.tType' |
+            translate }}</div>
+
+          <div class="col-12 row">
+            <div class="col-2">
+              <img style="padding-top: 30px" src="assets/c-default-indicators/VisitType.png" alt="" />
+            </div>
+            <div class="col-9 fontForSelectTitle" style="padding-top: 35px; white-space: nowrap">
+              <select [(ngModel)]="tType" (change)="selecttTypeChange()" style=" background: url(assets/c-default-indicators/Down.png) no-repeat right transparent; width: 210px;">
+                <option *ngFor="let type of tTypes" value="{{ type.value }}">{{ type.name }}</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="row col-lg-10 contForSelects">
+          <div class="col-lg-3">
+            <div class="col-12 fontForSelectUpperTitle" style="padding-top: 35px">{{ 'sesonal.vType' | translate }}
+            </div>
+            <div class="col-12 row">
+              <div class="col-2">
+                <img style="padding-top: 30px" src="assets/c-default-indicators/VisitType.png" alt="" />
+              </div>
+              <div class="col-9 fontForSelectTitle" style="padding-top: 35px; white-space: nowrap">
+                <select [(ngModel)]="vType" (change)="selectvTypeChange()"
+                  style="background: url(assets/c-default-indicators/Down.png) no-repeat right transparent; width: 190px;">
+                  <option *ngFor="let visit of vTypes" value="{{ visit.value }}">{{ visit.name }}</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3">
+            <div class="col-12 fontForSelectUpperTitle" style="padding-top: 35px">{{ 'sesonal.gender' | translate }}
+            </div>
+            <div class="col-12 row">
+              <div class="col-2">
+                <img style="padding-top: 30px" src="assets/c-seasonal/Gender.png" alt="" />
+              </div>
+              <div class="col-9 fontForSelectTitle" style="padding-left: 25px; padding-top: 35px; white-space: nowrap;">
+                <select [(ngModel)]="gender" (change)="selectGenderChange()"
+                  style="background: url(assets/c-default-indicators/Down.png) no-repeat right transparent; width: 135px;">
+                  <option *ngFor="let gen of genders" value="{{ gen.value }}">{{ gen.name }}</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3">
+            <div class="col-12 fontForSelectUpperTitle" style="padding-top: 35px">{{ 'sesonal.age' | translate }}</div>
+            <div class="col-12 row">
+              <div class="col-2">
+                <img style="padding-top: 30px" src="assets/c-seasonal/Age.png" alt="" />
+              </div>
+              <div class="col-9 fontForSelectTitle" style="padding-left: 25px; padding-top: 35px; white-space: nowrap;">
+                <select [(ngModel)]="age" (change)="selectAgeChange()"
+                  style="background: url(assets/c-default-indicators/Down.png) no-repeat right transparent; width: 80px;">
+                  <option *ngFor="let ag of ages" value="{{ ag.value }}">{{ ag.name }}</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3">
+            <div class="col-12 fontForSelectUpperTitle" style="padding-top: 35px">{{ 'sesonal.nationaliti' | translate
+              }}</div>
+            <div class="col-12 row">
+              <div class="col-2">
+                <img style="padding-top: 30px" src="assets/c-seasonal/Citizenship.png" alt="" />
+              </div>
+              <div class="col-9 fontForSelectTitle"
+                style=" padding-left: 25px; padding-top: 35px; white-space: nowrap;">
+                <select *ngIf="tType != 1" [(ngModel)]="country" (change)="selectCountriesChange()"
+                  style="background: url(assets/c-default-indicators/Down.png) no-repeat right transparent; width: 145px;">
+                  <option value="">{{ 'sesonal.all' | translate }}</option>
+                  <option *ngFor="let cntr of countryes" value="{{ cntr }}">{{ cntr }}</option>
+                </select>
+                <select *ngIf="tType == 1" disabled [(ngModel)]="country" (change)="selectCountriesChange()"
+                  style="width: 135px">
+                  <option value="">{{ 'sesonal.all' | translate }}</option>
+                  <option *ngFor="let cntr of countryes" value="{{ cntr }}">{{ cntr }}</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div> -->
+<!-- <div class="col-lg-3"> -->
+<!-- <div class="col-12 fontForSelectUpperTitle" style="padding-top: 35px">{{ 'sesonal.nationaliti' | translate }}</div> -->
+<!-- <div class="col-2">
+              <img style="padding-top: 30px" src="assets/c-seasonal/Citizenship.png" alt=""/>
+            </div> -->
+<!-- <div class="div" id="chart" style="height: 88%; width: 100%"></div>
+            <div class="">
+              <mat-radio-group class="ml-3" aria-label="Select an option">
+                <mat-radio-button value="1" checked (change)="getSeasonalPerc();" (click)="change1()">{{ 'sesonal.distribution' | translate }}</mat-radio-button>
+                <mat-radio-button class="ml-3" value="2" (change)="getSeasonalPerc();" (click)="change2()" selected>{{ 'sesonal.percentage' | translate }}</mat-radio-button>
+              </mat-radio-group>
+            </div> -->
+<!-- </div> -->
+<!-- </div>
+
+      <div class="col-lg-12 mt-5 plpr">
+        <div class="col-lg-12 contForFirstChart plpr pb-4"
+          style="width: 100%; height: 721px; background: #ffffff; box-shadow: 0px 4px 50px 5px rgba(0, 0, 0, 0.06); border-radius: 20px;">
+          <div
+            style="padding-top: 20px;font-family: FiraGO;font-style: normal;font-weight: 500;font-size: 24px;line-height: 38px;font-variant: small-caps;font-feature-settings: 'case' on; color: #3d3d3e; padding-left: 50px;">
+            {{ titleForChart }}
+          </div>
+          <div class="div" id="chart" style="height: 88%; width: 100%"></div>
+          <div class="">
+            <mat-radio-group class="ml-3" aria-label="Select an option">
+              <mat-radio-button value="1" checked (change)="getSeasonalPerc();" (click)="change1()">{{
+                'sesonal.distribution' | translate }}</mat-radio-button>
+              <mat-radio-button class="ml-3" value="2" (change)="getSeasonalPerc();" (click)="change2()" selected>{{
+                'sesonal.percentage' | translate }}</mat-radio-button>
+            </mat-radio-group>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-12" style="height: 90px"></div>
+    </div>
+  </div>
+</div> -->

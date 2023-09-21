@@ -1,0 +1,410 @@
+<div class="backgroundImg pb-4">
+  <div class="default__padding">
+    <section class="buttons__cnt">
+      <button
+        class="default__big__btn"
+        type="button"
+        [ngClass]="{ active__btn: isValue == 1 }"
+        (click)="activeOrNot(1)"
+      >
+        {{ "regional.inRegion" | translate }}
+      </button>
+      <button
+        type="button"
+        class="default__big__btn"
+        [ngClass]="{ active__btn: isValue == 2 }"
+        (click)="activeOrNot(2)"
+      >
+        {{ "regional.fromRegion" | translate }}
+      </button>
+    </section>
+    <section class="stats__and__map">
+      <div class="stats__cnt">
+        <div class="stats__content">
+          <img
+            src="assets/c-default-indicators/TourismType.png"
+            alt="location"
+          />
+          <p class="stats__title">{{ "regional.tType" | translate }}</p>
+        </div>
+        <div class="stats__box">
+          <div *ngIf="isValue == 1" class="stats__content">
+            <input
+              type="radio"
+              id="ttype1"
+              name="tType"
+              [checked]="true"
+              (change)="setTourismType(2)"
+            />
+            <label class="fontForCheckboxes" for="ttype1">{{
+              "regional.forigners" | translate
+            }}</label>
+          </div>
+          <div class="stats__content">
+            <input
+              type="radio"
+              id="ttype2"
+              name="tType"
+              (change)="setTourismType(1)"
+            />
+            <label class="fontForCheckboxes" for="ttype2">{{
+              "regional.locals" | translate
+            }}</label>
+          </div>
+        </div>
+
+        <hr />
+        <div class="stats__content fontForSelectTitle">
+          <img src="assets/c-default-indicators/Calendar.png" alt="" />
+          <select
+            class="stats__title year__title"
+            style="
+              background: url(assets/c-regional-analysis/Plus.png) no-repeat
+                right transparent;
+            "
+            (change)="changeYear()"
+            [(ngModel)]="year"
+          >
+            <option *ngFor="let data of years" value="{{ data }}">
+              {{ data }}
+            </option>
+          </select>
+        </div>
+
+        <hr />
+        <div class="choose__regions" *ngIf="tourismType === 1">
+          <div
+            class="stats__content fontForSelectTitle"
+            style="margin-bottom: 20px"
+          >
+            <img src="assets/ht-default-indicators/ra.png" alt="" />
+            <select
+              class="stats__title year__title"
+              style="
+                background: url(assets/c-regional-analysis/Plus.png) no-repeat
+                  right transparent;
+                width: 55%;
+              "
+              (change)="changeRegion($event)"
+              [(ngModel)]="selectedRegion"
+            >
+              <option *ngFor="let i of regions" value="{{ i }}">
+                {{ i.split("_").join(" ") }}
+              </option>
+            </select>
+          </div>
+          <hr />
+        </div>
+
+        <div class="stats__content">
+          <img src="assets/ht-default-indicators/Vector.png" alt="location" />
+          <p class="stats__title">{{ "regional.indicator" | translate }}</p>
+        </div>
+
+        <section class="stats__box">
+          <div class="stats__content">
+            <input
+              type="radio"
+              id="0"
+              name="All"
+              value="0"
+              (change)="RDBClick($event)"
+              [checked]="true"
+            />
+            <label class="fontForCheckboxes" for="0">{{
+              "regional.all" | translate
+            }}</label>
+          </div>
+          <div class="stats__content">
+            <input
+              type="radio"
+              id="1"
+              name="forGender"
+              value="1"
+              (change)="RDBClick($event)"
+            />
+            <label class="fontForCheckboxes" for="1">{{
+              "regional.byGender" | translate
+            }}</label>
+            <img
+              (click)="detailedGender()"
+              src="assets/c-regional-analysis/Plus.png"
+              alt=""
+            />
+          </div>
+          <div
+            class="stats__sub__cnt"
+            *ngIf="isGenderDetailed"
+            [(ngModel)]="isGenderDetailed"
+          >
+            <div
+              class="stats__sub__content stats__content"
+              *ngFor="let gender of Genders; let ind = index"
+            >
+              <input
+                id="{{ gender.name }}1"
+                type="checkbox"
+                name="{{ gender.name }}"
+                value="{{ gender.value }}"
+                (change)="checkBoxClic($event)"
+                [(ngModel)]="gender.isDisabled"
+              />
+              <label class="fontForCheckboxes" for="{{ gender.name }}1">{{
+                gender.name
+              }}</label>
+            </div>
+          </div>
+          <div class="stats__content">
+            <input
+              type="radio"
+              id="2"
+              name="forAge"
+              value="2"
+              (change)="RDBClick($event)"
+            />
+            <label class="fontForCheckboxes" for="2">{{
+              "regional.byAge" | translate
+            }}</label>
+            <img
+              (click)="detailedAge()"
+              src="assets/c-regional-analysis/Plus.png"
+              alt=""
+            />
+          </div>
+          <div
+            class="stats__sub__cnt"
+            *ngIf="isAgeDetailed"
+            [(ngModel)]="isAgeDetailed"
+          >
+            <div
+              class="stats__sub__content stats__content"
+              *ngFor="let age of Ages; let ind = index"
+            >
+              <input
+                id="{{ age.name }}2"
+                type="checkbox"
+                name="{{ age.name }}"
+                value="{{ age.value }}"
+                (change)="checkBoxClic($event)"
+                [(ngModel)]="age.isDisabled"
+              />
+              <label class="fontForCheckboxes" for="{{ age.name }}">{{
+                age.name
+              }}</label>
+            </div>
+          </div>
+
+          <div class="stats__box" *ngIf="isValue == 2">
+            <div class="stats__content">
+              <input
+                type="radio"
+                id="3"
+                name="forGoal"
+                value="3"
+                (change)="RDBClick($event)"
+              />
+              <label class="fontForCheckboxes" for="3">{{
+                "regional.byGoal" | translate
+              }}</label>
+              <img
+                (click)="detailedPurpose()"
+                src="assets/c-regional-analysis/Plus.png"
+                alt=""
+              />
+            </div>
+            <div
+              class="stats__sub__cnt"
+              *ngIf="isPurposeDetailed"
+              [(ngModel)]="isPurposeDetailed"
+            >
+              <div
+                class="stats__sub__content stats__content"
+                *ngFor="let goal of goals; let ind = index"
+              >
+                <input
+                  id="{{ goal.name }}3"
+                  type="checkbox"
+                  name="{{ goal.name }}"
+                  value="{{ goal.value }}"
+                  (change)="checkBoxClic($event)"
+                  [(ngModel)]="goal.isDisabled"
+                />
+                <label class="fontForCheckboxes" for="{{ goal.name }}">{{
+                  goal.name
+                }}</label>
+              </div>
+            </div>
+            <div class="stats__content">
+              <input
+                type="radio"
+                id="4"
+                name="forRate"
+                value="4"
+                (change)="RDBClick($event)"
+              />
+              <label class="fontForCheckboxes" for="4">{{
+                "regional.byRate" | translate
+              }}</label>
+              <img
+                (click)="detaledRate()"
+                src="assets/c-regional-analysis/Plus.png"
+                alt=""
+              />
+            </div>
+            <div
+              class="stats__sub__cnt"
+              *ngIf="isRateDetaled"
+              [(ngModel)]="isRateDetaled"
+            >
+              <div
+                class="stats__sub__content stats__content"
+                *ngFor="let rate of rates; let ind = index"
+              >
+                <input
+                  id="{{ rate.name }}4"
+                  type="checkbox"
+                  name="{{ rate.name }}"
+                  value="{{ rate.value }}"
+                  (change)="checkBoxClic($event)"
+                  [(ngModel)]="rate.isDisabled"
+                />
+                <label class="fontForCheckboxes" for="{{ rate.name }}">{{
+                  rate.name
+                }}</label>
+              </div>
+            </div>
+            <div class="stats__content">
+              <input
+                type="radio"
+                id="5"
+                name="forActivity"
+                value="5"
+                (change)="RDBClick($event)"
+              />
+              <label class="fontForCheckboxes" for="5">{{
+                "regional.byActivity" | translate
+              }}</label>
+              <img
+                (click)="detailedActivity()"
+                src="assets/c-regional-analysis/Plus.png"
+                alt=""
+              />
+            </div>
+            <div
+              class="stats__sub__cnt"
+              *ngIf="isActivityDetailed"
+              [(ngModel)]="isActivityDetailed"
+            >
+              <div
+                class="stats__sub__content stats__content"
+                *ngFor="let visit of visits; let ind = index"
+              >
+                <input
+                  id="{{ visit.name }}5"
+                  type="checkbox"
+                  name="{{ visit.name }}"
+                  value="{{ visit.value }}"
+                  (change)="checkBoxClic($event)"
+                  [(ngModel)]="visit.isDisabled"
+                />
+                <label class="fontForCheckboxes" for="{{ visit.name }}">{{
+                  visit.name
+                }}</label>
+              </div>
+            </div>
+            <div class="stats__content">
+              <input
+                type="radio"
+                id="6"
+                name="forTransport"
+                value="6"
+                (change)="RDBClick($event)"
+              />
+              <label class="fontForCheckboxes" for="6">{{
+                "regional.byTransport" | translate
+              }}</label>
+              <img
+                (click)="detailedTransport()"
+                src="assets/c-regional-analysis/Plus.png"
+                alt=""
+              />
+            </div>
+            <div
+              class="stats__sub__cnt"
+              *ngIf="isTransportDetailed"
+              [(ngModel)]="isTransportDetailed"
+            >
+              <div
+                class="stats__sub__content stats__content"
+                *ngFor="let transport of transports; let ind = index"
+              >
+                <input
+                  id="{{ transport.name }}6"
+                  type="checkbox"
+                  name="{{ transport.name }}"
+                  value="{{ transport.value }}"
+                  (change)="checkBoxClic($event)"
+                  [(ngModel)]="transport.isDisabled"
+                />
+                <label class="fontForCheckboxes" for="{{ transport.name }}">{{
+                  transport.name
+                }}</label>
+              </div>
+            </div>
+          </div>
+        </section>
+        <hr />
+        <section class="stats__box">
+          <div class="stats__content">
+            <input
+              type="radio"
+              id="RdbVisits"
+              name="flagRadio"
+              value="RdbVisits"
+              [checked]="true"
+              (change)="changeFlag('visits')"
+            />
+            <label class="fontForCheckboxes" for="RdbVisits">{{
+              "regional.quantity" | translate
+            }}</label>
+          </div>
+          <div class="stats__content">
+            <input
+              type="radio"
+              id="RdbNights"
+              name="flagRadio"
+              value="RdbNights"
+              (change)="changeFlag('nights')"
+            />
+            <label class="fontForCheckboxes" for="RdbNights">{{
+              "regional.avarigeNights" | translate
+            }}</label>
+          </div>
+        </section>
+      </div>
+      <div class="map__cnt">
+        <h3 class="map__title">{{ mapChartTitle }}</h3>
+        <div class="map" id="chart1"></div>
+        <p class="note">{{ "note.regional" | translate }}</p>
+        <p class="note" *ngIf="tourismType == 2">
+          {{ "note.regional2" | translate }}
+        </p>
+      </div>
+    </section>
+
+    <div class="other__charts__cnt regional__analysis">
+      <div
+        *ngIf="tourismType == 1"
+        [class.sub__chart__cnt1]="isValue == 1"
+        [class.sub__chart__cnt]="isValue == 2"
+      >
+        <h3 class="chart__title">{{ sanqiName }}</h3>
+        <div class="sub__chart" id="chart22"></div>
+      </div>
+      <div *ngIf="tourismType == 1 && isValue == 2" class="sub__chart__cnt">
+        <h3 class="chart__title">{{ expenceTitle }}</h3>
+        <div class="sub__chart" id="chart2"></div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,112 @@
+<div class="backgroundImg bax default__padding">
+  <div class="row container-for-header">
+    <div class="col-lg-3">
+      <div class="contForSelects">
+        <div
+          style="display: flex; gap: 10px; border-radius: 20px; padding: 5px"
+        >
+          <img src="assets/ht-hotels-georgia/HotelType.png" alt="" />
+          <div class="fontForCheckboxesTitle">
+            {{ "Hhotelsingeorgia.type" | translate }}
+          </div>
+        </div>
+
+        <div class="contForHotes">
+          <div>
+            <input
+              type="checkbox"
+              id="All"
+              name="All"
+              value="0"
+              (change)="checkUncheckAll($event)"
+            />
+            <label style="padding-left: 5px" for="All">{{
+              "Hhotelsingeorgia.def" | translate
+            }}</label
+            ><br />
+          </div>
+          <div *ngFor="let tp of hotelTypes" [(ngModel)]="hType" id="checkDiv">
+            <input
+              type="checkbox"
+              id="{{ tp.name }}"
+              name="{{ tp.name }}"
+              [checked]="tp.value == 1"
+              value="{{ tp.value }}"
+              (change)="addRemoveHotel()"
+            />
+            <label style="padding-left: 5px" for="{{ tp.name }}">{{
+              tp.name
+            }}</label>
+            <br />
+          </div>
+        </div>
+
+        <div style="display: flex; gap: 10px; margin-top: 20px; padding: 5px">
+          <img
+            src="assets/ht-hotels-georgia/Rooms.png"
+            alt=""
+            style="padding-left: 3px"
+          />
+          <div class="fontForCheckboxesTitle">
+            {{ "Hhotelsingeorgia.rooms" | translate }}
+          </div>
+        </div>
+
+        <div class="contForHotes">
+          <div>
+            <input
+              type="checkbox"
+              id="AllRoom"
+              name="AllRoom"
+              value="0"
+              (change)="checkUncheckAllRoom($event)"
+            />
+            <label for="AllRoom" style="padding-left: 5px">{{
+              "Hhotelsingeorgia.def" | translate
+            }}</label
+            ><br />
+          </div>
+
+          <div *ngFor="let tp of roomsNuber" [(ngModel)]="room" id="roomkDiv">
+            <input
+              type="checkbox"
+              id="{{ tp.name }}"
+              name="{{ tp.name }}"
+              value="{{ tp.value }}"
+              [checked]="tp.value == 2"
+              (change)="addRemoveRoom()"
+            />
+            <label style="padding-left: 5px" for="{{ tp.name }}">{{
+              tp.name
+            }}</label>
+            <br />
+          </div>
+        </div>
+
+        <!-- <button
+          type="button"
+          class="btn btn-success"
+          style="margin-top: 20px"
+          (click)="buttonClick()"
+        >
+          {{ "Hhotelsingeorgia.button" | translate }}
+        </button> -->
+
+        <button type="button" class="compareBTN" (click)="buttonClick()">
+          {{ "Hhotelsingeorgia.button" | translate }}
+        </button>
+      </div>
+    </div>
+    <div class="col-lg-9">
+      <div class="map-container">
+        <div
+          class="map-frame"
+          style="border: 1px solid #5c4fc9; border-radius: 20px; height: 668px"
+        >
+          <div id="map" style="border-radius: 20px; height: 100%"></div>
+        </div>
+      </div>
+    </div>
+    <div class="col-12" style="height: 137px"></div>
+  </div>
+</div>

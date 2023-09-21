@@ -1,0 +1,295 @@
+@import "./assets/styles/media-queries";
+@import "./assets/styles/colors";
+
+@font-face {
+  font-family: "FiraGO";
+  src: local("FiraGO"),
+    url("./assets/font/FiraGO-Regular.woff") format("truetype");
+}
+
+* {
+  font-family: "FiraGO" !important;
+  font-weight: bold !important;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+}
+
+// .container-for-header {
+//   max-width: 1355px;
+//   width: 100%;
+//   margin-right: auto;
+//   margin-left: auto;
+//   padding-top: 1%;
+// }
+
+// .container-for-navigation {
+//     max-width: 1355px;
+//     width: 100%;
+//     margin-right: auto;
+//     margin-left: auto;
+// }
+
+.font {
+  font-weight: 500;
+  font-family: "firaGO";
+  font-feature-settings: "case" on, "cpsp" on;
+}
+
+.fontForSelectUpperTitle {
+  font-family: "FiraGO";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  font-variant: small-caps;
+
+  color: #c4c4c4;
+}
+
+.fontForSelectTitle {
+  font-family: "FiraGO";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  font-variant: small-caps;
+
+  color: #6b6b6d;
+}
+
+html,
+input,
+label,
+select,
+option {
+  cursor: url("assets/redcur.cur"), auto !important;
+}
+
+a,
+button,
+path,
+svg,
+rect,
+tspan,
+.icon-display,
+th,
+.zoom__icon {
+  cursor: url("assets/redpoint.cur"), auto !important;
+}
+
+::selection {
+  background: rgb(231, 135, 135);
+}
+
+// SCROLLBAR
+
+body::-webkit-scrollbar {
+  width: 10px; /* width of the entire scrollbar */
+}
+body::-webkit-scrollbar-track {
+  background: transparent; /* color of the tracking area */
+}
+body::-webkit-scrollbar-thumb {
+  background-color: #32a9ff; /* color of the scroll thumb */
+  // border-radius: 10px;       /* roundness of the scroll thumb */
+  // border: 3px;  /* creates padding around scroll thumb */
+}
+
+.d::-webkit-scrollbar {
+  width: 5px;
+}
+
+.d::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+.d::-webkit-scrollbar-thumb {
+  background-color: #c4c4c4;
+  border-radius: 20px;
+}
+
+select::-webkit-scrollbar {
+  width: 5px;
+}
+
+select::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+select::-webkit-scrollbar-thumb {
+  background-color: #c4c4c4;
+  border-radius: 20px;
+}
+
+select {
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+// /SCROLLBAR
+
+select {
+  background-color: transparent;
+  border: none;
+  outline: 0px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-indent: 1px;
+  text-overflow: "";
+  color: #6b6b6d;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+// html, body { height: 100%; }
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "FiraGO" !important;
+}
+
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-feature-settings: "case" on;
+  font-feature-settings: "case" on;
+  overflow-x: hidden;
+}
+
+// in case if we need blur on background when hotels small charts are open
+
+// .chart__is__open {
+//   overflow: hidden !important;
+//   position: fixed;
+//   background-color: rgb(0,0,0); /* Fallback color */
+//   background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+// }
+
+button {
+  cursor: pointer;
+}
+
+main {
+  min-height: 83vh;
+}
+
+.default__padding {
+  padding-right: 15vw;
+  padding-left: 15vw;
+  @include laptop {
+    padding-right: 10vw;
+    padding-left: 10vw;
+  }
+  @include tablet {
+    padding-right: 2vw;
+    padding-left: 2vw;
+  }
+}
+
+a {
+  text-decoration: none !important;
+}
+
+.plpr {
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+}
+
+.flex__row {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+}
+
+.amcharts-amexport-menu {
+  position: absolute !important;
+  top: -35px !important;
+  // right: 20px !important;
+  li {
+    background-color: #fff !important;
+  }
+}
+
+.contForAquaButtons {
+  .amcharts-amexport-menu {
+    position: absolute !important;
+    top: -100px !important;
+    right: 0 !important;
+  }
+}
+
+// .other__chart {
+//   .amcharts-amexport-menu {
+//     position: absolute !important;
+//     top: -205px !important;
+//     right: -50px !important;
+//   }
+// }
+
+.regional__analysis {
+  .amcharts-amexport-menu {
+    position: absolute !important;
+    top: -15px !important;
+    right: 0 !important;
+  }
+}
+
+.chartAndSelevt {
+  .amcharts-amexport-menu {
+    position: absolute !important;
+    top: -40px !important;
+    right: 0 !important;
+  }
+}
+
+.mChart {
+  .amcharts-amexport-menu {
+    position: absolute !important;
+    top: 0 !important;
+    z-index: 1000;
+  }
+}
+.map__cnt {
+  .amcharts-amexport-menu {
+    position: absolute !important;
+    top: 0 !important;
+    z-index: 10000;
+  }
+}
+
+.map__chart {
+  .amcharts-amexport-menu {
+    position: absolute !important;
+    top: 0 !important;
+    z-index: 10000;
+  }
+}
+
+// default radio and checkbox buttons
+
+input[type="radio"],
+input[type="checkbox"] {
+  accent-color: #51459f;
+}
+
+.note {
+  color: #6b6b6d;
+  font-size: 0.7rem;
+  font-feature-settings: "case" off;
+  font-style: italic;
+  margin: 0 !important;
+}
+
+.main__logo {
+  width: 70px;
+}

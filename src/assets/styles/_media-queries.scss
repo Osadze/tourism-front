@@ -1,0 +1,29 @@
+@mixin laptop {
+  @media screen and (max-width: 1280px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media screen and (max-width: 800px) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media screen and (max-width: 496px) {
+    @content;
+  }
+}
+
+@mixin mobileAndUp {
+  @media screen and (min-width: 496px) {
+    @content;
+  }
+}
+
+@mixin tabletAndUp {
+  @media screen and (min-width: 800px) {
+    @content;
+  }
+}

@@ -1,0 +1,395 @@
+@import "../../assets/styles/colors";
+@import "../../assets/styles/media-queries";
+
+.landing__page {
+  height: clamp(500px, 42vw, 900px);
+  display: flex;
+  gap: 0.1875rem;
+  overflow-x: hidden;
+
+  @include mobile {
+    flex-wrap: wrap;
+  }
+
+  .visitors,
+  .hotels {
+    padding: 7vw 8vw;
+    width: 50%;
+    background-position: center -12.5rem;
+    background-repeat: no-repeat;
+    border-radius: 0.3125rem;
+    -webkit-transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    -o-transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+
+    @include mobile {
+      width: 100%;
+      background-position: center;
+    }
+
+    &:hover .btn {
+      @include mobileAndUp {
+        width: 130px;
+      }
+    }
+  }
+
+  .categorie__content {
+    height: 10rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    @include mobile {
+      justify-content: space-evenly;
+    }
+  }
+
+  .visitors {
+    .categorie__content {
+      align-items: flex-start;
+    }
+  }
+  .categorie__title {
+    max-width: 80%;
+  }
+
+  .hotels {
+    .categorie__content {
+      align-items: flex-end;
+
+      @include mobile {
+        align-items: flex-start;
+      }
+    }
+
+    .categorie__title {
+      text-align: end;
+      @include mobile {
+        text-align: start;
+      }
+    }
+  }
+
+  .categorie__title {
+    font-size: clamp(1.25rem, 2vw, 1.75rem);
+    font-weight: bold;
+    color: $light;
+    width: 500px;
+    font-variant: small-caps;
+    font-feature-settings: "case" on;
+    line-height: clamp(25px, 2.6vw, 40px);
+  }
+
+  .btn {
+    font-family: FiraGO;
+    font-weight: bold;
+    background: $light;
+    border: none;
+    border-radius: 0.3125rem;
+    padding: 0.75rem 0.625rem 0.625rem 0.75rem;
+    width: 100px;
+    color: $blue;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+    -webkit-transition: all 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+    -o-transition: all 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: all 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+
+    @include mobile {
+      width: auto;
+    }
+  }
+
+  .arrow__icon {
+    display: block;
+    width: 25px;
+    height: 14px;
+    background-repeat: no-repeat;
+    background-size: 25px;
+  }
+
+  &:hover > :not(:hover) {
+    @include mobileAndUp {
+      -webkit-filter: brightness(0.5);
+      -moz-filter: brightness(0.5);
+      -o-filter: brightness(0.5);
+      -ms-filter: brightness(0.5);
+    }
+  }
+}
+
+// .slide {
+//   width: 80vw;
+//   height: 93vh;
+//   // height: 100vh;
+// }
+// // .wrapper {
+// //   display: flex;
+// //   flex-direction: row;
+// //   width: 160vw;
+// // }
+
+// .one {
+//   background: url("../../assets/HomePage/Traveler.png"),
+//     url("../../assets/HomePage/categoriesBack.png"),
+//     url("../../assets/HomePage/donut.png"), url("../../assets/HomePage/stat.png"),
+//     url("../../assets/HomePage/bigStat.png"), url("../../assets/HomePage/line1.png"),
+//     url("../../assets/HomePage/line2.png"), url("../../assets/HomePage/miniPlane1.png"),
+//     url("../../assets/HomePage/miniPlane1.png"), url("../../assets/HomePage/blueLine.png"),
+//     url("../../assets/HomePage/plane.png") #f1f2f8;
+//   background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat,
+//     no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
+//   background-position: 80% 45%, 100% 6%, 47% 73%, 39% 47%, 95% 75%, 0% 101%,
+//     0% 101%, 26% 95%, 14% 65%, 103% -28%, 61% 42%;
+// }
+
+// .one2 {
+//   background: url("../../assets/HomePage/Traveler.png"),
+//     url("../../assets/HomePage/categoriesBack.png"),
+//     url("../../assets/HomePage/donut.png"), url("../../assets/HomePage/stat.png"),
+//     url("../../assets/HomePage/bigStat.png"), url("../../assets/HomePage/line1.png"),
+//     url("../../assets/HomePage/line2.png"), url("../../assets/HomePage/miniPlane1.png"),
+//     url("../../assets/HomePage/miniPlane1.png"), url("../../assets/HomePage/blueLine.png"),
+//     url("../../assets/HomePage/plane.png") #f1f2f8;
+//   background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat,
+//     no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
+//   background-position: 80% 45%, 100% 6%, 47% 73%, 39% 47%, 95% 75%, 0% 101%,
+//     0% 101%, 26% 95%, 14% 65%, 103% -28%, 61% 42%;
+//   filter: grayscale(40%);
+//   -webkit-filter: grayscale(40%);
+// }
+
+// .two {
+//   background: url("../../assets/HomePage/hotels.png"),
+//     url("../../assets/HomePage/underHotels.png"),
+//     url("../../assets/HomePage/blueLine2.png") #aed9fa;
+//   background-repeat: no-repeat, no-repeat, no-repeat;
+//   background-position: -232% 0%, 3% 175%, 0% 161%;
+//   z-index: 1000;
+//   filter: grayscale(40%);
+//   -webkit-filter: grayscale(40%);
+// }
+
+// .two2 {
+//   background: url("../../assets/HomePage/hotels.png"),
+//     url("../../assets/HomePage/underHotels.png"),
+//     url("../../assets/HomePage/blueLine2.png") #f1f2f8;
+//   background-repeat: no-repeat, no-repeat, no-repeat;
+//   background-position: -232% 0%, 3% 175%, 0% 161%;
+//   z-index: 1000;
+// }
+
+// .outer-wrapper {
+//   transform-origin: top left;
+//   overflow-y: hidden;
+//   overflow-x: hidden;
+//   position: absolute;
+// }
+
+// .outer-wrapper {
+//   scrollbar-width: none;
+//   -ms-overflow-style: none;
+// }
+// ::-webkit-scrollbar {
+//   display: none;
+// }
+
+// .buttonn {
+//   background: #ffffff;
+//   border: none;
+//   color: white;
+//   padding: 40px;
+//   text-align: center;
+//   text-decoration: none;
+//   display: inline-block;
+//   font-size: 16px;
+//   margin: 4px 2px;
+//   border-radius: 50%;
+// }
+
+// .buttonsFont {
+//   font-family: "FiraGO";
+//   font-style: normal;
+//   font-weight: 500;
+//   font-size: 13px;
+//   line-height: 17px;
+//   font-variant: small-caps;
+//   font-feature-settings: "case" on;
+//   color: #ffffff;
+// }
+
+// .buttonsFont2{
+//   float: right;
+// }
+
+// .sectionDescription {
+//   font-family: "FiraGO";
+//   font-style: normal;
+//   font-weight: 500;
+//   font-size: 18px;
+//   line-height: 32px;
+//   font-variant: small-caps;
+//   color: #3d3d3e;
+//   padding-top: 7%;
+// }
+
+// .titleFont {
+//   font-family: "FiraGO";
+//   font-style: normal;
+//   font-weight: 700;
+//   font-size: 36px;
+//   line-height: 48px;
+//   font-variant: small-caps;
+//   font-feature-settings: "case" on;
+//   color: #ffffff;
+//   text-align: center;
+// }
+
+// .title2{
+//   text-align: center;
+// }
+
+// .title1{
+//   text-align: center;
+// }
+
+// .goButton {
+//   width: 136px;
+//   height: 42px;
+//   background: #5c4fc9;
+//   border-radius: 5px;
+//   margin-top: 15%;
+// }
+
+// .moveBetweenSlidesButton1 {
+//   margin-top: 400%;
+//   width: 92px;
+//   height: 92px;
+//   background-image: url("../../assets/HomePage/secondPuller.png");
+//   background-position: 50% 50%;
+//   background-repeat: no-repeat, repeat;
+// }
+
+// .moveBetweenSlidesButton2 {
+//   margin-top: 400%;
+//   width: 92px;
+//   height: 92px;
+//   background-image: url("../../assets/HomePage/Puller.png");
+//   background-position: 50% 50%;
+//   background-repeat: no-repeat, repeat;
+// }
+
+// .mob {
+//   display: none;
+// }
+
+// .home1{
+//   background-image: url(../../assets/HomePage/home1.png);
+
+//   background-position: bottom;
+
+//   background-repeat: no-repeat;
+
+//   background-size: 95%;
+
+//   padding-left: 30px;
+//   padding-top: 30px;
+
+//   border: 0.25px solid #ffffff;
+//   box-shadow: 0px 4px 35px 10px rgba(0, 0, 0, 0.05);
+// }
+
+// .added{
+
+//   background-image: url(../../assets/HomePage/7437.jpg);
+
+//   background-size: 80%;
+
+//   background-repeat: no-repeat;
+
+//   position: absolute;
+//   top: 5px;
+//   left: 85px;
+//   z-index: 2;
+//   width: 10%;
+//   height: 60px;
+//   // overflow: hidden;
+//   // background: #fff;
+//   margin:0 auto;
+
+//   // background: #3d3d3e;
+// }
+
+// .home1:hover{
+//   color: #ffffff;
+//   opacity: 70%;
+// }
+
+// .home2:hover{
+//   color: #ffffff;
+//   opacity: 70%;
+// }
+
+// .home2{
+//   background-image: url(../../assets/HomePage/homerg.png);
+
+//   background-position: bottom;
+
+//   border: 0.25px solid #ffffff;
+//   box-shadow: 0px 4px 35px 10px rgba(0, 0, 0, 0.05);
+//   // border-radius: 20px;
+// }
+
+// // .container{
+// //   background-image: url(../../assets/background-images/sesonal.png);
+// //   background-position: center;
+// // }
+
+// // .engl1{
+
+// // }
+
+// .div {
+//   height: 22px;
+//   position: relative;
+// }
+
+// .go-center {
+//   margin: 0;
+//   position: absolute;
+//   top: 50%;
+//   left: 50%;
+//   -ms-transform: translate(-50%, -50%);
+//   transform: translate(-50%, -50%);
+// }
+
+// .center {
+//   margin: auto;
+//   width: 50%;
+//   // border: 3px solid green;
+//   padding: 10px;
+// }
+
+// app-footer {
+//   display: none;
+// }
+
+// @media only screen and (min-width: 0px) and (max-width: 991px) {
+//   .color {
+//     display: none;
+//   }
+
+//   .mob {
+//     display: inline;
+//   }
+
+//   .goButton {
+//     width: 136px;
+//     height: 42px;
+//     background: #5c4fc9;
+//     border-radius: 5px;
+//   }
+// }

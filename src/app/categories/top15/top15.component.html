@@ -1,0 +1,126 @@
+<div
+  class="default__padding bgImage"
+  style="background-color: #f9fbff; padding-bottom: 100px"
+>
+  <h3 class="top10Heading">
+    {{ "top10.topCountries1" | translate }} <br />
+    {{ "top10.topCountries2" | translate }}
+  </h3>
+  <div class="chartAndSelevt col" style="min-height: 650px">
+    <div class="row d-flex; justify-content-between">
+      <div
+        class="col-sm-12 col-lg-3 pt-4 selectCont mt-2"
+        style="min-height: 90%"
+      >
+        <div
+          class="timePer"
+          [style.background-image]="
+            'url(../../../assets/c-default-indicators/Calendar.png'
+          "
+        >
+          {{ "top10.period" | translate }}
+        </div>
+        <p class="top10Texts mt-4">{{ "top10.start" | translate }}</p>
+
+        <select
+          class="form-select mt-2 sel"
+          (change)="changeStart()"
+          [(ngModel)]="year"
+        >
+          <option *ngFor="let data of years" value="{{ data }}">
+            {{ data }}
+          </option>
+        </select>
+        <select
+          class="form-select mt-3 sel"
+          (change)="changeStartM()"
+          [(ngModel)]="startM.value"
+        >
+          <option *ngFor="let data of monthies" value="{{ data.value }}">
+            {{ data.name }}
+          </option>
+        </select>
+
+        <hr style="color: #5c4fc9" />
+        <p class="top10Texts mt-4">{{ "top10.end" | translate }}</p>
+        <select
+          class="form-select mt-3 sel"
+          (change)="changeStart()"
+          [(ngModel)]="yearEnd"
+        >
+          <option *ngFor="let data of yearsReverced" value="{{ data }}">
+            {{ data }}
+          </option>
+        </select>
+        <select
+          class="form-select mt-3 sel"
+          (change)="changeEndm()"
+          [(ngModel)]="endM.value"
+        >
+          <option *ngFor="let data of monthiesEnd" value="{{ data.value }}">
+            {{ data.name }}
+          </option>
+        </select>
+        <hr style="color: #5c4fc9" />
+
+        <div class="form-check form-check-inline mt-3">
+          <input
+            class="form-check-input"
+            type="radio"
+            name="inlineRadioOptions"
+            id="inlineRadio1"
+            value="option1"
+            [checked]="true"
+            (change)="changeFlag(1)"
+          />
+          <label class="form-check-label" for="inlineRadio1">{{
+            "top10.startPer" | translate
+          }}</label>
+        </div>
+
+        <div class="form-check form-check-inline mt-1">
+          <input
+            class="form-check-input"
+            type="radio"
+            name="inlineRadioOptions"
+            id="inlineRadio2"
+            value="option2"
+            (change)="changeFlag(2)"
+          />
+          <label class="form-check-label" for="inlineRadio2">{{
+            "top10.endPer" | translate
+          }}</label>
+        </div>
+
+        <br />
+        <button type="button" class="compareBTN" (click)="getChart()">
+          {{ "top10.compare" | translate }}
+        </button>
+        <div
+          class="alert alert-warning alert-dismissible fade show"
+          role="alert"
+          *ngIf="denger"
+          style="position: absolute; bottom: 100px; left: 0; z-index: 10"
+        >
+          <strong>{{ "top10.message" | translate }}</strong>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="alert"
+            aria-label="Close"
+            (click)="changedenger()"
+          ></button>
+        </div>
+      </div>
+      <div class="col-sm-12 col-lg-6 mr-2 ml-2 mt-2 mb-2 chartDiv">
+        <div class="" id="topChart" style="min-height: 100%"></div>
+      </div>
+
+      <div class="col-sm-0 col-lg-2 top10 mt-2 mb-2">
+        <p class="text-center">{{ "top10.top" | translate }}</p>
+        <div id="legenddiv" style="min-height: 500px; width: 200px"></div>
+        <p class="comment">{{ comment }}</p>
+      </div>
+    </div>
+  </div>
+</div>

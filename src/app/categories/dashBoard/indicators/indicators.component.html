@@ -1,0 +1,172 @@
+<app-header></app-header>
+
+<div
+  *ngIf="flag"
+  class="forTable d-flex justify-content-center"
+  style="background-image: url(../../../../assets/background-images/right.png)"
+>
+  <div class="card">
+    <h3 class="card-header text-center font-weight-bold text-uppercase py-4">
+      {{ "user.indicators" | translate }}
+    </h3>
+    <div class="card-body">
+      <div id="table" class="table-editable">
+        <span class="table-add float-right mb-3 mr-2"
+          ><a href="#!" class="text-success"
+            ><i class="fas fa-plus fa-2x" aria-hidden="true"></i></a
+        ></span>
+        <table class="table table-bordered table-responsive-md table-striped">
+          <thead>
+            <tr>
+              <th
+                class="text-center"
+                style="width: 40px; font-size: 20px; color: blue"
+              >
+                #
+              </th>
+              <th
+                style="
+                  width: 300px;
+                  text-align: center;
+                  font-size: 20px;
+                  color: blue;
+                "
+              >
+                {{ "user.name" | translate }}
+              </th>
+              <th
+                class="text-center"
+                style="width: 70px; font-size: 20px; color: blue"
+              >
+                {{ "user.view" | translate }}
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr
+              class="tbrow"
+              *ngFor="let indicator of Indicators"
+              [attr.id]="'row' + Indicators.indexOf(indicator)"
+            >
+              <td class="text-center">
+                {{ Indicators.indexOf(indicator) + 1 }}
+              </td>
+              <td class="tdcell" style="padding-left: 20px">{{ indicator }}</td>
+              <td>
+                <div class="table-remove cell-content">
+                  <button
+                    [attr.id]="'btn' + Indicators.indexOf(indicator)"
+                    type="button"
+                    class="btn btn-danger btn-rounded btn-sm"
+                    (click)="
+                      SetNameIDs(Indicators.indexOf(indicator)); ChangeFlag()
+                    "
+                  >
+                    {{ "user.view" | translate }}
+                  </button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="btndiv">
+          <button
+            type="button"
+            class="btn btn-danger btn-rounded btn-sm"
+            (click)="GoHome()"
+          >
+            {{ "user.home" | translate }}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div
+  *ngIf="!flag"
+  class="forTable d-flex justify-content-center"
+  style="background-image: url(../../../../assets/background-images/right.png)"
+>
+  <div class="card">
+    <div class="card-body">
+      <div id="table" class="table-editable">
+        <span class="table-add float-right mb-3 mr-2"
+          ><a href="#!" class="text-success"
+            ><i class="fas fa-plus fa-2x" aria-hidden="true"></i></a
+        ></span>
+        <table class="table table-bordered table-responsive-md table-striped">
+          <thead>
+            <tr>
+              <th
+                class="text-center"
+                style="width: 40px; font-size: 20px; color: blue"
+              >
+                ID
+              </th>
+              <th
+                colspan="2"
+                style="
+                  width: 300px;
+                  text-align: center;
+                  font-size: 20px;
+                  color: blue;
+                "
+              >
+                {{ Indicators[SelectedIndicator] }}
+              </th>
+              <th
+                class="text-center"
+                style="width: 70px; font-size: 20px; color: blue"
+              >
+                {{ "user.change" | translate }}
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr
+              class="tbrow"
+              *ngFor="let name of NameIDs"
+              [attr.id]="'row' + name.Id"
+            >
+              <td class="text-center">{{ name.Id }}</td>
+              <td class="tdcell" style="padding-left: 20px">
+                {{ name.NameGE }}
+              </td>
+              <td class="tdcell" style="padding-left: 20px">
+                {{ name.NameEN }}
+              </td>
+              <td>
+                <div class="table-remove cell-content">
+                  <section [routerLink]="['/indicators/edit']">
+                    <div class="categorie__content">
+                      <button
+                        [attr.id]="'btn' + name.NameEN"
+                        type="button"
+                        class="btn btn-danger btn-rounded btn-sm"
+                        (click)="GetObjForPatch(name.Id, SelectedIndicator)"
+                      >
+                        {{ "user.edit" | translate }}
+                      </button>
+                    </div>
+                  </section>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="btndiv">
+          <button
+            type="button"
+            class="btn btn-danger btn-rounded btn-sm"
+            (click)="GoHome(); ChangeFlag()"
+          >
+            {{ "user.home" | translate }}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

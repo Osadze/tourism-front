@@ -1,0 +1,105 @@
+.outerCard {
+  touch-action: none;
+  overflow: hidden;
+  width: 400px;
+  height: 400px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.topPanel {
+  width: 400px;
+  height: 64px;
+  text-align: center;
+  line-height: 64px;
+}
+
+.prevYearButton {
+  float: left;
+}
+
+.nextYearButton {
+  float: right;
+}
+
+button {
+  width: 64px;
+  height: 64px;
+  background: none;
+  border: none;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+button:focus {
+  outline: 0;
+}
+
+i {
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 6px;
+}
+
+.right {
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+}
+
+.left {
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+}
+
+.topPanel.yearLabel {
+  display: inline-block;
+  margin: 0 auto;
+}
+
+.contentPanel {
+  padding: 32px 6px;
+}
+
+.monthItem {
+  display: inline-block;
+  height: 64px;
+  width: 64px;
+  cursor: pointer;
+  text-align: center;
+  line-height: 64px;
+  margin-top: 1px;
+  margin-bottom: 1px;
+}
+
+.monthItem:hover {
+  border-radius: 100%;
+  background-color: #1474a4;
+  color: white;
+}
+
+.isEdge {
+  border-radius: 100%;
+  background-color: #1474a4;
+  color: white;
+}
+
+.inRange {
+  background-color: #1474a4;
+  opacity: 0.5;
+  color: white;
+}
+
+.isLowerEdge {
+  background-color: none;
+  background: linear-gradient(to right, transparent 50%, #1474a4 50%);
+}
+
+.isUpperEdge {
+  background-color: none;
+  background: linear-gradient(to right, #1474a4 50%, transparent 50%);
+}
+
+.notCurrentYear {
+  color: #c4cbd6;
+}

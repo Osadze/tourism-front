@@ -1,0 +1,209 @@
+{
+  "header": {
+    "title": "Tourism Statistics Portal"
+  },
+
+  "home": {
+    "title1": "Visitor Survey Results",
+    "title2": "Hotel Survey Results"
+  },
+
+  "footer": {
+    "title1": " National Statistics Office Of Georgia",
+    "title2": "© All Rights Rescerved",
+    "text": "The website has been developed with the assistance of the United Nations Development Programme and Sweden. Its contents are the sole responsibility of Geostat and do not necessarily reflect the views of UNDP and Sweden"
+  },
+
+  "hotel": {
+    "navbar1": "Key Indicators",
+    "navbar2": "Interactive Map",
+    "navbar3": "Hotels In Georgia",
+    "placeholder": "Search For a Country",
+    "country": "Country",
+
+    "guests": "Guests",
+    "title2": "Number of Guests",
+    "fromRegions": "By Regions",
+    "inRegions": "By Continents"
+  },
+
+  "Hhotelsingeorgia": {
+    "def": "All",
+    "type": "Hotel Type",
+    "rooms": "Number of Rooms",
+    "button": "Show",
+    "სასტუმრო": "Hotel",
+    "კემპინგი": "Camping",
+    "კოტეჯი": "Cottage",
+    "სასტუმრო სახლი": "Guest House",
+    "კოტეჯი ან სახლი მასპინძლის გარეშე": "A Cottage or House Without a Host",
+    "საიდენტიფიკაციო კოდი": "Identification Code"
+  },
+
+  "keyindic": {
+    "indic": "Indicator",
+    "hotelCount": "Number of Hotels",
+    "guestCount": "Number of Guests",
+    "regs": "Regions",
+    "def": "All",
+    "hotelsChartTitle": "Number of Hotels (Unit)",
+    "roomsChartTitle": "Number of Rooms and Bed-places (Unit)",
+    "guestsChartTitle": "Number of Guests (Unit)",
+    "incomsChartTitle": "Income (Thousand GEL)",
+    "emploeeChartTitle": "Employees (Person)",
+    "expenceChartTitle": "Expenditures (Thousand GEL)"
+  },
+
+  "categories": {
+    "Indicators": "Key Indicators",
+    "comparision": "Comparison of indicators",
+    "regAnalyse": "Regional analysis",
+    "sesonal": "seasonality",
+    "interMap": "Interactive map",
+    "visits": "International visits"
+  },
+
+  "defIndicator": {
+    "indic": "indicator",
+    "period": "periodicity",
+    "tourismType": "type of tourism",
+    "tourType": "Type of visit",
+    "clearTooltip": "Clear filter",
+    "allExpence": "Total expenditure",
+    "avarExpence": "Average expenditure"
+  },
+
+  "comparision": {
+    "visits": "Distribution Of Visits",
+    "byMain": "By Main Variable",
+    "byHelp": "By Additional Variable",
+    "year": "Year",
+    "quarter": "Quarter",
+    "mainVar": "Main Variable",
+    "helpVar": "Additional Variable",
+    "params": "parameters",
+    "forign": "Inbound Tourism",
+    "exit": "Outbound Tourism",
+    "local": "Domestic Tourism",
+    "quarterName": "All"
+  },
+
+  "regional": {
+    "inRegion": "In Region",
+    "fromRegion": "From Region",
+    "tType": "Tourism Type",
+    "forigners": "Inbound Tourism",
+    "locals": "Domestic Tourism",
+    "indicator": "Indicator",
+    "all": "Total",
+    "byGender": "By Gender",
+    "byAge": "By Age",
+    "byStatus": "By Status",
+    "byGoal": "By The Main Purpose",
+    "byRate": "By Satisfaction Level",
+    "byActivity": "By Activity",
+    "byTransport": "By Transport",
+    "quantity": "By The Number Of Visits",
+    "avarigeNights": "By The Number Of Nights"
+  },
+
+  "sesonal": {
+    "tType": "Tourism type",
+    "vType": "Visit type",
+    "gender": "Gender",
+    "age": "Age",
+    "nationaliti": "Citizenship",
+    "all": "All",
+    "distribution": "Total distribution",
+    "percentage": "% Percentage distribution by years"
+  },
+
+  "interactive": {
+    "vType": "Visit type",
+    "gender": "Gender",
+    "age": "Age",
+    "month": "Month",
+    "year": "Year",
+    "quarter": "Quarter",
+    "vCount": "Number of visits",
+    "avarigeNights": "Average Nights",
+    "country": "Country",
+    "all": "Total",
+    "searchcountry": "Search for a country",
+    "visits": "Number of visits"
+  },
+
+  "interVisit": {
+    "top10": "Top 10 Countries",
+    "visits": "Visists",
+    "borderType": "Border Types",
+    "border": "Border"
+  },
+
+  "top10": {
+    "topCountries1": "Top 10 Countries By",
+    "topCountries2": "Number of Visits",
+    "period": "Time Interval",
+    "start": "Start Date",
+    "end": "End Date",
+    "startPer": "By the Initial Period",
+    "endPer": "By the Final Period",
+    "compare": "Compare",
+    "message": "Please Specify the Time Interval Correctly",
+    "top": "Top 10 Countries"
+  },
+
+  "visitcount": {
+    "show": "Show",
+    "top1": "Visits Count by",
+    "top2": "Countries"
+  },
+
+  "bordertype": {
+    "top1": "Number of visits By",
+    "top2": "Border Types",
+    "start": "Start Date",
+    "end": "End Date",
+    "forign": "Inbound Tourism",
+    "exit": "Outbound Tourism",
+    "compare": "Compare",
+    "period": "Time Interval",
+    "type": "Border Types"
+  },
+
+  "border": {
+    "top1": "Number of visits By",
+    "top2": "Borders",
+    "start": "Start Date",
+    "end": "End Date",
+    "forign": "Inbound Tourism",
+    "exit": "Outbound Tourism",
+    "compare": "Compare",
+    "period": "Time Interval",
+    "type": "Borders",
+    "message": "Please Specify the Time Interval Correctly"
+  },
+
+  "note": {
+    "mainIndicators": "Note: Some data From the II quarter of 2020 to 2021 are not available due to the spread of the new coronavirus (COVID-19) in Georgia.",
+    "regional": "Note: Imereti region includes the data of Racha-Lechkhumi and Kvemo Svaneti regions.",
+    "regional2": "Note: Data for visits where visited regions were not specified is not available.",
+    "interactiveMap": "Note: In a certain number of visits, citizenship is not indicated."
+  },
+
+  "user": {
+    "indicators": "Indicators",
+    "name": "Name",
+    "view": "View",
+    "change": "Change",
+    "home": "GoHome",
+    "edit": "Edit",
+    "userName": "Enter a valid user name",
+    "user": "User",
+    "enterPassword": "Enter password",
+    "password": "Password",
+    "login": "Login",
+    "editName": "New Name",
+    "conf": "Confirm"
+  }
+}

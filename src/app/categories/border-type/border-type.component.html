@@ -1,0 +1,116 @@
+<div
+  class="default__padding bgImage"
+  style="background-color: #f9fbff; padding-bottom: 100px"
+>
+  <h3 class="top10Heading">
+    {{ "bordertype.top1" | translate }} <br />
+    {{ "bordertype.top2" | translate }}
+  </h3>
+
+  <div class="row">
+    <div class="col-sm-12 col-lg-3 selectCont p-4 mt-2" style="height: 640px">
+      <div
+        class="timePer"
+        [style.background-image]="
+          'url(../../../assets/c-default-indicators/Calendar.png'
+        "
+      >
+        {{ "bordertype.period" | translate }}
+      </div>
+      <p class="top10Texts mt-4">{{ "bordertype.start" | translate }}</p>
+
+      <select class="form-select mt-2 sel" [(ngModel)]="year">
+        <option *ngFor="let data of years" value="{{ data }}">
+          {{ data }}
+        </option>
+      </select>
+
+      <select class="form-select mt-2 sel" [(ngModel)]="startM.value">
+        <option *ngFor="let data of monthies" value="{{ data.value }}">
+          {{ data.name }}
+        </option>
+      </select>
+
+      <hr style="color: #5c4fc9" />
+      <p class="top10Texts mt-4">{{ "bordertype.end" | translate }}</p>
+
+      <select class="form-select mt-2 sel" [(ngModel)]="yearEnd">
+        <option *ngFor="let data of yearsReverced" value="{{ data }}">
+          {{ data }}
+        </option>
+      </select>
+
+      <select class="form-select mt-2 sel" [(ngModel)]="endM.value">
+        <option *ngFor="let data of monthiesEnd" value="{{ data.value }}">
+          {{ data.name }}
+        </option>
+      </select>
+      <hr style="color: #5c4fc9" />
+      <div class="form-check form-check-inline mt-1">
+        <input
+          class="form-check-input"
+          type="radio"
+          name="inlineRadioOptions"
+          id="inlineRadio1"
+          value="option1"
+          [checked]="true"
+          (change)="changeFlag(1)"
+          (click)="GetYears(1)"
+        />
+        <label class="form-check-label" for="inlineRadio1">{{
+          "bordertype.forign" | translate
+        }}</label>
+      </div>
+
+      <div class="form-check form-check-inline mt-1">
+        <input
+          class="form-check-input"
+          type="radio"
+          name="inlineRadioOptions"
+          id="inlineRadio2"
+          value="option2"
+          (change)="changeFlag(2)"
+          (click)="GetYears(2)"
+        />
+        <label class="form-check-label" for="inlineRadio1">{{
+          "bordertype.exit" | translate
+        }}</label>
+      </div>
+
+      <br />
+      <button type="button" class="compareBTN" (click)="getChart()">
+        {{ "bordertype.compare" | translate }}
+      </button>
+
+      <div
+        class="alert alert-warning alert-dismissible fade show"
+        role="alert"
+        *ngIf="denger"
+        style="position: absolute; bottom: 100px; left: 0; z-index: 10"
+      >
+        <strong>{{ "top10.message" | translate }}</strong>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="alert"
+          aria-label="Close"
+          (click)="changedenger()"
+        ></button>
+      </div>
+    </div>
+
+    <div class="col-sm-12 col-lg-9 mt-2 mb-2">
+      <div class="chartDiv">
+        <div class="" id="topChart" style="min-height: 100%"></div>
+      </div>
+
+      <div
+        class="col-sm-12 col-lg-12 top10 top10BT mt-4 mb-2"
+        style="height: 20vh"
+      >
+        <p class="text-center">{{ "bordertype.type" | translate }}</p>
+        <div id="legenddiv"></div>
+      </div>
+    </div>
+  </div>
+</div>

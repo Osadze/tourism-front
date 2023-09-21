@@ -1,0 +1,102 @@
+<div class="row" style="margin-top: 50px">
+  <div class="col-lg-2 col-md-2 col-sm-12"></div>
+  <div class="col-lg-2 col-md-12 col-sm-12 text-center pt-3">
+    <select
+      class="form-select"
+      name="my-select"
+      aria-label="Default select example"
+      [(ngModel)]="tourTypeSelect"
+      (change)="selectTourType()"
+    >
+      <option value="0" selected>ვიზიტის ტიპი</option>
+      <option
+        [label]="datas.tourType"
+        *ngFor="let datas of tourTypes"
+        [value]="datas.value"
+      >
+        {{ datas.tourType }}
+      </option>
+    </select>
+  </div>
+  <div class="col-lg-2 col-md-12 col-sm-12 text-center pt-3">
+    <select
+      class="form-select"
+      name="my-select-2"
+      [(ngModel)]="genderSelect"
+      (change)="selectGenderChange()"
+      aria-label="Default select example"
+    >
+      <option value="0" selected>სქესი</option>
+      <option
+        [label]="datas.id"
+        *ngFor="let datas of gendersOptions"
+        [value]="datas.value"
+      >
+        {{ datas.value }}
+      </option>
+    </select>
+  </div>
+  <div class="col-lg-2 col-md-12 col-sm-12 text-center pt-3">
+    <select
+      class="form-select"
+      name="my-select"
+      [(ngModel)]="ageSelect"
+      (change)="selectAgeChange()"
+      aria-label="Default select example"
+    >
+      <option value="0" selected>ასაკი</option>
+      <option
+        [label]="datas.id"
+        *ngFor="let datas of agesOptions"
+        [value]="datas.value"
+      >
+        {{ datas.value }}
+      </option>
+    </select>
+  </div>
+  <div class="col-lg-2 col-md-12 col-sm-12 text-center pt-3">
+    <select
+      class="form-select"
+      name="my-select"
+      aria-label="Default select example"
+      disabled
+    >
+      <option value="0" selected>მოქალაქეობა</option>
+      <option></option>
+    </select>
+  </div>
+  <div class="col-lg-2 col-md-2 col-sm-12"></div>
+</div>
+<div class="row">
+  <div class="col-2"></div>
+  <div class="col-8 text-center pt-5" style="height: 700px" id="chart"></div>
+  <div class="col-2"></div>
+</div>
+
+<div class="row pt-5">
+  <div class="col-2"></div>
+  <div class="col-4 text-center">
+    <input
+      type="radio"
+      class="custom-control-input"
+      id="defaultChecked"
+      name="defaultExampleRadios"
+      checked
+    />
+    <label class="custom-control-label pt-3" for="defaultChecked"
+      >% განაწილება წლების მიხედვით</label
+    >
+  </div>
+  <div class="col-4 text-center">
+    <input
+      type="radio"
+      class="custom-control-input"
+      id="defaultUnchecked"
+      name="defaultExampleRadios"
+    />
+    <label class="custom-control-label pt-3" for="defaultUnchecked"
+      >მთლიანი განაწილება</label
+    >
+  </div>
+  <div class="col-2"></div>
+</div>

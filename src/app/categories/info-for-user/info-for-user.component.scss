@@ -1,0 +1,70 @@
+.info {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: #f9fbff !important;
+}
+
+// .frame {
+//   width: 100px;
+//   height: 150px;
+//   font-family: "FiraGO";
+//   font-style: normal;
+//   font-weight: 500;
+//   font-size: 16px;
+//   line-height: 38px;
+//   /* or 238% */
+
+//   text-align: center;
+//   // vertical-align: baseline;
+//   font-variant: small-caps;
+//   font-feature-settings: "case" on;
+
+//   color: #2330a4;
+// }
+
+.contForSelectBox {
+  width: 10%;
+  height: 133px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f9fbff;
+  border: 0.25px solid #2330a4;
+  box-shadow: 0px 4px 35px 10px rgba(0, 0, 0, 0.05);
+  border-radius: 20px;
+  font-family: "FiraGO";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  color: #2330a4;
+}
+
+a,
+u {
+  text-decoration: none;
+}
+
+.text-center {
+  margin: auto;
+  margin-top: 19%;
+}
+
+.frame:hover {
+  background: #2330a4;
+  color: #ffffff;
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1265px) {
+  .inRegionButton {
+    margin-left: 70px;
+  }
+}
+
+@media only screen and (min-width: 0px) and (max-width: 991px) {
+  .switchButtons {
+    text-align: center;
+  }
+  .descriptionOfChartColumns {
+    display: none;
+  }
+}

@@ -1,0 +1,44 @@
+@keyframes bouncing {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.page-overlay-wrapper {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  z-index: 1009;
+  background: rgba(61, 65, 61, 0.5);
+
+  .bee-spinner {
+    width: 200px;
+    height: 200px;
+    border: 25px solid;
+    border-color: #0aa0c5 transparent #6dd8f3 transparent;
+    border-radius: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    top: 40%;
+    z-index: 100;
+    //background-image: url(../../assets/spinner.png);
+    background-size: 97%;
+    animation: bouncing 0.4s cubic-bezier(0.1, 0.25, 0.1, 1) 0s infinite
+      alternate both;
+  }
+}

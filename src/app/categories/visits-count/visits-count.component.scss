@@ -1,0 +1,165 @@
+@import "../../../assets/styles/media-queries";
+.bgImage {
+  background: url("../../../assets/c-default-indicators/worldMap.png"),
+    url("../../../assets/c-default-indicators/Plan.png") #f9fbff;
+  background-repeat: no-repeat, no-repeat;
+  background-position: 99% 64%, 3% 11%;
+}
+.top10Heading {
+  font-size: 1.5rem;
+  line-height: 38px;
+  color: #3d3d3e;
+  // padding-top: 2%;
+}
+.selectCont {
+  background: #ffffff;
+  border: 0.5px solid #5c4fc9;
+  border-radius: 20px;
+}
+.timePer {
+  color: #929497;
+  background-repeat: no-repeat;
+  padding-left: 30px;
+  padding-top: 4px;
+  font-size: 0.875rem;
+}
+.top10Texts {
+  font-size: 0.875rem;
+  color: #3d3d3e;
+}
+
+.sel {
+  font-size: 14px;
+  color: #3d3d3e;
+  padding: 15px;
+  font-style: normal;
+}
+.compareBTN {
+  margin-top: 25px;
+  padding: 12px !important;
+  width: 100%;
+  border: none;
+  background-color: #51459f;
+  text-align: center;
+  border-radius: 10px;
+  font-size: 1rem;
+  color: #ffffff;
+}
+.chartDiv {
+  height: 639px;
+  background: #ffffff;
+  box-shadow: 0px 4px 50px 5px rgba(0, 0, 0, 0.05);
+  border-radius: 15px;
+  @include tablet {
+    margin: 25px 0 0 0 !important;
+  }
+}
+.top10 {
+  width: 261px;
+  background: rgba(235, 237, 246, 0.5);
+  backdrop-filter: blur(2px);
+  border-radius: 15px;
+  p {
+    font-size: 1.25rem;
+    line-height: 38px;
+    text-align: center;
+    color: #3d3d3e;
+    margin-top: 20px;
+  }
+}
+
+// .line{
+//     height: 20%;
+// }
+
+// .ragac1{
+//     width: 30%;
+//     float: left;
+// }
+
+// .ragac2{
+//     margin: 0 auto;
+//     width: 40%;
+//     float: right;
+// }
+
+// .ragac3{
+//     margin: 0 auto;
+//     width: 40%;
+// }
+
+// .forDropdown{
+//     border-radius: 5px;
+// }
+
+// .ragac4{
+//     width: 20%;
+//     float: left;
+// }
+
+// .ragac5{
+//     width: 45%;
+//     float: left;
+// }
+
+// .lline1{
+//     height: 15%;
+// }
+
+// .line2{
+//     height: 10%;
+// }
+
+// .lline3{
+//     height: 25%;
+// }
+
+// .lline4{
+//     height: 25%;
+// }
+
+// .lline5{
+//     height: 25%;
+// }
+
+// #chartdiv, #legenddiv {
+//     width: 100%;
+//     height: 73%;
+//     margin: auto;
+// }
+
+// .getVisits{
+//     margin: auto;
+//     width: 35%;
+// }
+
+// .contForSelectBox {
+//     // width: 100%;
+//     // height: 133px;
+
+//     background: #f9fbff;
+//     border: 0.25px solid #2330a4;
+//     box-shadow: 0px 4px 35px 10px rgba(0, 0, 0, 0.05);
+//     border-radius: 20px;
+// }
+
+// .text {
+//     font-size: 16px;
+//     white-space: nowrap;
+//     font-family: 'FiraGO';
+//     font-style: normal;
+//     font-weight: 500;
+//     font-size: 16px;
+//     line-height: 19px;
+//     color: #000000;
+//     text-align: center;
+// }
+
+// .vc{
+//     background-image: url(../../../assets/background-images/vc.jpg);
+
+//     background-repeat: no-repeat;
+//     // background-attachment: fixed;
+//     background-size: 800px;
+//     background-position: center;
+// }

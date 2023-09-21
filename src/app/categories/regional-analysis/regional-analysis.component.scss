@@ -1,0 +1,256 @@
+@import "../../../assets/styles/media-queries";
+
+// .b1 {
+//   height: 70px;
+//   margin: 5px;
+// }
+// .b2 {
+//   height: 60px;
+// }
+
+.buttons__cnt {
+  display: flex;
+  gap: 1.5rem;
+  @include tablet {
+    flex-direction: column;
+  }
+}
+
+.default__big__btn {
+  border: none;
+  font-family: "FiraGO";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  font-variant: small-caps;
+  font-feature-settings: "case" on;
+  color: #51459f;
+  background-color: rgba(255, 126, 174, 0.05);
+  box-shadow: 0px 4px 30px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  padding: 1.7rem 7rem;
+}
+
+.active__btn {
+  color: #ffffff;
+  background-color: #51459f;
+}
+
+.stats__and__map {
+  display: grid;
+  grid-template-columns: 0.85fr 3fr;
+  margin-top: 1.5rem;
+  gap: 1.5rem;
+  @include tablet {
+    grid-template-columns: 12fr;
+  }
+
+  .stats__cnt {
+    background: #fff;
+    border: 0.5px solid #5c4fc9;
+    border-radius: 20px;
+    // width: 22%;
+    height: fit-content;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    hr {
+      margin: 0 !important;
+    }
+    .stats__content {
+      display: flex;
+      align-items: center;
+      p:not(.stats__title),
+      label {
+        margin: 0 8px 0 10px !important;
+      }
+    }
+    .stats__box {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+  }
+
+  .stats__title {
+    font-family: "FiraGO";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1rem;
+    font-variant: small-caps;
+    color: #929497;
+    margin: 0 0 0 15px !important;
+  }
+
+  .year__title {
+    font-size: 1.1rem;
+    width: 55px;
+  }
+
+  .stats__sub__cnt {
+    margin-left: 30px;
+  }
+
+  .map__cnt {
+    width: 100%;
+    height: 38.8rem;
+    background: #ffffff;
+    box-shadow: 0px 4px 50px 5px rgba(0, 0, 0, 0.05);
+    border-radius: 15px;
+    padding: 30px 10px;
+
+    .map__title {
+      color: #3d3d3e;
+      font-size: 24px;
+      text-align: center;
+    }
+
+    .map {
+      width: 100%;
+      height: 85%;
+      @include tablet {
+        height: 75%;
+      }
+    }
+  }
+}
+
+.other__charts__cnt {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+  @include tablet {
+    flex-direction: column;
+  }
+
+  .sub__chart__cnt {
+    background-color: #fff;
+    height: 500px;
+    width: 50%;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 15px;
+    box-shadow: 0px 4px 50px 5px rgba(0, 0, 0, 0.05);
+    @include tablet {
+      width: 100%;
+    }
+    .chart__title {
+      color: #3d3d3e;
+      font-size: 22px;
+      text-align: center !important;
+      margin: 0 !important;
+    }
+
+    .sub__chart {
+      width: 90%;
+      height: 90%;
+    }
+  }
+
+  .sub__chart__cnt1 {
+    margin: auto;
+    background-color: #fff;
+    height: 500px;
+    width: 60%;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 15px;
+    box-shadow: 0px 4px 50px 5px rgba(0, 0, 0, 0.05);
+    @include tablet {
+      width: 100%;
+    }
+    .chart__title {
+      color: #3d3d3e;
+      font-size: 22px;
+      text-align: center !important;
+      margin: 0 !important;
+    }
+  
+    .sub__chart {
+      width: 90%;
+      height: 90%;
+    }
+  }
+}
+
+
+// old
+
+.FontForChartTitles {
+  font-size: 18px;
+  line-height: 24px;
+  color: #3d3d3e;
+  padding-bottom: 30px;
+  text-align: left;
+}
+
+.fontForCheckboxesTitle {
+  font-family: "FiraGO";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  font-variant: small-caps;
+  color: #929497;
+}
+
+.fontForCheckboxes {
+  font-family: "FiraGO";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  font-variant: small-caps;
+
+  color: #3d3d3e;
+}
+
+.backgroundImg {
+  background: url("../../../assets/c-default-indicators/worldMap.png"),
+    url("../../../assets/c-default-indicators/Plan.png") #f9fbff;
+  background-repeat: no-repeat, no-repeat;
+  background-position: 99% 80%, 3% 16%;
+}
+
+.contForBottomTwoChart {
+  width: 100%;
+  height: 533px;
+  background: #ffffff;
+  box-shadow: 0px 4px 50px 5px rgba(0, 0, 0, 0.05);
+  border-radius: 15px;
+}
+
+// .firstCont {
+//   width: 100%;
+//   height: 590px;
+//   background: #ffffff;
+//   box-shadow: 0px 4px 50px 5px rgba(0, 0, 0, 0.05);
+//   border-radius: 15px;
+// }
+
+// @media only screen and (min-width: 0px) and (max-width: 991px) {
+//   .butPos {
+//     text-align: center;
+//   }
+
+//   .contForBottomTwoChart {
+//     margin-top: 40px;
+//   }
+
+//   .firstCont {
+//     margin-top: 40px;
+//   }
+//   .respMT{
+//     margin-top: 5%
+//   }
+//   .dateReg{
+//     display: flex !important;
+//     align-items: center !important;
+//     justify-content: center !important;
+//   }
+// }

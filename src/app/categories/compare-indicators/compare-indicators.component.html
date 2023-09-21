@@ -1,0 +1,300 @@
+<div class="color">
+  <div class="container-for-header default__padding">
+    <div class="row col-12 switchButtons">
+      <div class="col-lg-2 bigTitle mTopResponsive">
+        {{ "comparision.visits" | translate }}
+      </div>
+      <div class="col-lg-3 mTopResponsive">
+        <button
+          type="button"
+          class="not-selected-button"
+          [ngClass]="{ acti: isValue == 1 }"
+          (click)="activeOrNot(1)"
+        >
+          {{ "comparision.byMain" | translate }}
+        </button>
+      </div>
+
+      <div class="col-lg-3 mTopResponsive">
+        <button
+          class="not-selected-button inRegionButton"
+          type="button"
+          [ngClass]="{ acti: isValue == 2 }"
+          (click)="activeOrNot(2)"
+        >
+          {{ "comparision.byHelp" | translate }}
+        </button>
+      </div>
+    </div>
+
+    <div class="row" style="margin-top: 1.5rem">
+      <div class="col-lg-3 mTopResponsive">
+        <div class="col-12 contForSelectBox">
+          <div class="col-12 fontForSelectUpperTitle" style="padding-top: 35px">
+            {{ "comparision.year" | translate }}
+          </div>
+          <div class="col-12 row">
+            <div class="col-2">
+              <img
+                style="padding-top: 25px"
+                src="assets/c-default-indicators/Calendar.png"
+                alt=""
+              />
+            </div>
+            <div
+              class="col-8 fontForSelectTitle"
+              style="padding-left: 25px; padding-top: 33px"
+            >
+              <select
+                style="
+                  background: url(assets/c-default-indicators/Down.png)
+                    no-repeat right transparent;
+                  width: 130%;
+                "
+                (change)="selectYearChange()"
+                [(ngModel)]="year"
+              >
+                <option *ngFor="let data of Years$ | async" value="{{ data }}">
+                  {{ data }}
+                </option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 mTopResponsive">
+        <div class="col-12 contForSelectBox">
+          <div class="col-12 fontForSelectUpperTitle" style="padding-top: 35px">
+            {{ "comparision.quarter" | translate }}
+          </div>
+          <div class="col-12 row">
+            <div class="col-2">
+              <img
+                style="padding-top: 25px"
+                src="assets/c-compare-indicators/Quarter.png"
+                alt=""
+              />
+            </div>
+            <div
+              class="col-8 fontForSelectTitle"
+              style="padding-left: 25px; padding-top: 33px"
+            >
+              <select
+                style="
+                  background: url(assets/c-default-indicators/Down.png)
+                    no-repeat right transparent;
+                  width: 130%;
+                "
+                (change)="selectQuarterChange()"
+                [(ngModel)]="quarter"
+              >
+                <option *ngFor="let data of quarters" value="{{ data.value }}">
+                  {{ data.name }}
+                </option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 mTopResponsive">
+        <div class="col-12 contForSelectBox">
+          <div class="col-12 fontForSelectUpperTitle" style="padding-top: 35px">
+            {{ "comparision.mainVar" | translate }}
+          </div>
+          <div class="col-12 row">
+            <div class="col-2">
+              <img
+                style="padding-top: 25px"
+                src="assets/c-compare-indicators/cvladi.png"
+                alt=""
+              />
+            </div>
+            <div
+              class="col-7 fontForSelectTitle"
+              style="padding-left: 8px; padding-top: 33px; white-space: nowrap"
+            >
+              <select
+                style="
+                  background: url(assets/c-default-indicators/Down.png)
+                    no-repeat right transparent;
+                  width: 130%;
+                "
+                (change)="selMainIndicChange()"
+                [(ngModel)]="mIndic"
+              >
+                <option
+                  *ngFor="let data of indicsMain"
+                  value="{{ data.value }}"
+                >
+                  {{ data.name }}
+                </option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 mTopResponsive">
+        <div class="col-12 contForSelectBox">
+          <div
+            class="col-12 fontForSelectUpperTitle"
+            style="padding-top: 35px; white-space: nowrap"
+            (click)="activeOrNot(3)"
+          >
+            {{ "comparision.helpVar" | translate }}
+          </div>
+          <div class="col-12 row">
+            <div class="col-2">
+              <img
+                style="padding-top: 25px"
+                src="assets/c-compare-indicators/Gender.png"
+                alt=""
+              />
+            </div>
+            <div
+              class="col-8 fontForSelectTitle"
+              style="padding-left: 25px; padding-top: 33px"
+            >
+              <select
+                style="
+                  background: url(assets/c-default-indicators/Down.png)
+                    no-repeat right transparent;
+                  width: 130%;
+                "
+                (change)="selhelpIndicChange()"
+                [(ngModel)]="hIndic"
+              >
+                <option
+                  *ngFor="let data of indicsHelp"
+                  value="{{ data.value }}"
+                >
+                  {{ data.name }}
+                </option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="p-2"
+      style="
+        border-radius: 20px;
+        background: rgba(242, 242, 253, 0.6);
+        margin-top: 2rem;
+      "
+    >
+      <div class="row">
+        <div class="col-lg-3 switchButtons">
+          <div class="col-12 descriptionOfChartColumns">
+            <div style="padding-top: 25px">
+              <button class="col-12 blueButtons" style="margin-bottom: 40px">
+                <i
+                  style="
+                    background: url(assets/c-compare-indicators/setting.png);
+                    background-color: #5c4fc9;
+                  "
+                  class="compareIcon"
+                >
+                </i>
+                <div class="titleForBlueButtons">
+                  {{ "comparision.params" | translate }}
+                </div>
+              </button>
+              <div class="row" style="height: 34rem">
+                <div
+                  class="row-eq-height"
+                  style="margin: auto; color: #3d3d3e"
+                  *ngFor="let data of forMainArray$ | async"
+                >
+                  {{ data }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 mTopResponsive">
+          <div class="col-12 contForAquaButtons">
+            <div style="padding-left: 13px; padding-top: 25px">
+              <button class="col-12 blueButtons">
+                <i
+                  style="
+                    background: url(assets/c-compare-indicators/tourist.png);
+                    background-color: #ff2090;
+                  "
+                  class="compareIcon"
+                >
+                </i>
+                <div class="titleForBlueButtons">
+                  {{ "comparision.forign" | translate }}
+                </div>
+              </button>
+              <div
+                [hidden]="isValue != 1"
+                style="min-height: 42rem"
+                id="chartdiv"
+              ></div>
+              <div [hidden]="isValue != 2" style="height: 38rem" id="ch2"></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 mTopResponsive">
+          <div class="col-12 contForAquaButtons">
+            <div style="padding-left: 13px; padding-top: 25px">
+              <button class="col-12 blueButtons">
+                <i
+                  style="
+                    background: url(assets/c-compare-indicators/plain.png);
+                    background-color: #0581fb;
+                  "
+                  class="compareIcon"
+                >
+                </i>
+
+                <div class="titleForBlueButtons">
+                  {{ "comparision.exit" | translate }}
+                </div>
+              </button>
+              <div
+                [hidden]="isValue != 1"
+                style="min-height: 42rem"
+                id="chartdiv2"
+              ></div>
+              <div [hidden]="isValue != 2" style="height: 38rem" id="ch1"></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 mTopResponsive">
+          <div class="col-12 contForAquaButtons">
+            <div style="padding-left: 13px; padding-top: 25px">
+              <button class="col-12 blueButtons">
+                <i
+                  style="
+                    background: url(assets/c-compare-indicators/location.png);
+                    background-color: #17bdc0;
+                  "
+                  class="compareIcon"
+                >
+                </i>
+
+                <div class="titleForBlueButtons">
+                  {{ "comparision.local" | translate }}
+                </div>
+              </button>
+              <div
+                [hidden]="isValue != 1"
+                style="min-height: 42rem"
+                id="chartdiv3"
+              ></div>
+
+              <div [hidden]="isValue != 2" style="height: 38rem" id="ch"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-12" style="height: 90px"></div>
+    </div>
+  </div>
+</div>

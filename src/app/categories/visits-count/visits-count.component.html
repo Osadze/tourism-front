@@ -1,0 +1,94 @@
+<div
+  class="default__padding bgImage"
+  style="background-color: #f9fbff; padding-bottom: 100px"
+>
+  <h3 class="top10Heading">
+    {{ "visitcount.top1" | translate }} <br />
+    {{ "visitcount.top2" | translate }}
+  </h3>
+  <div class="chartAndSelevt col" style="height: 650px">
+    <div class="row d-flex; justify-content-between">
+      <div
+        class="col-sm-12 col-lg-3 pt-4 selectCont mt-2"
+        style="min-height: 90%"
+      >
+        <div
+          class="timePer"
+          [style.background-image]="
+            'url(../../../assets/c-default-indicators/Calendar.png'
+          "
+        >
+          {{ "top10.period" | translate }}
+        </div>
+        <p class="top10Texts mt-4">{{ "top10.start" | translate }}</p>
+
+        <select class="form-select mt-3 sel" [(ngModel)]="year">
+          <option *ngFor="let data of years" value="{{ data }}">
+            {{ data }}
+          </option>
+        </select>
+
+        <select class="form-select mt-3 sel" [(ngModel)]="startM.value">
+          <option *ngFor="let data of monthies" value="{{ data.value }}">
+            {{ data.name }}
+          </option>
+        </select>
+
+        <hr style="color: #5c4fc9" />
+        <p class="top10Texts mt-4">{{ "top10.end" | translate }}</p>
+
+        <select class="form-select mt-3 sel" [(ngModel)]="yearEnd">
+          <option *ngFor="let data of yearsReverced" value="{{ data }}">
+            {{ data }}
+          </option>
+        </select>
+
+        <select class="form-select mt-3 sel" [(ngModel)]="endM.value">
+          <option *ngFor="let data of monthiesEnd" value="{{ data.value }}">
+            {{ data.name }}
+          </option>
+        </select>
+        <hr style="color: #5c4fc9" />
+
+        <div
+          class="timePer"
+          [style.background-image]="
+            'url(../../../assets/c-default-indicators/country.png'
+          "
+        >
+          {{ "interactive.country" | translate }}
+        </div>
+
+        <select class="form-select mt-3 sel" [(ngModel)]="country">
+          <option *ngFor="let data of countryes" value="{{ data }}">
+            {{ data }}
+          </option>
+        </select>
+
+        <button type="button" class="compareBTN" (click)="getVisitChart()">
+          {{ "visitcount.show" | translate }}
+        </button>
+      </div>
+
+      <div
+        class="alert alert-warning alert-dismissible fade show"
+        role="alert"
+        *ngIf="denger"
+        style="position: absolute; bottom: 100px; left: 0; z-index: 10"
+      >
+        <strong>{{ "top10.message" | translate }}</strong>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="alert"
+          aria-label="Close"
+          (click)="changedenger()"
+        ></button>
+      </div>
+
+      <div class="col-sm-12 col-lg-8 ml-5 mt-2 chartDiv">
+        <div class="chart" id="visitsChart" style="min-height: 100%"></div>
+      </div>
+    </div>
+  </div>
+</div>

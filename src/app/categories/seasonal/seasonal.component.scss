@@ -1,0 +1,56 @@
+.backgroundImg {
+  background: url("../../../assets/c-seasonal/seasoning.png") #f9fbff;
+  background-repeat: no-repeat;
+  background-position: right 0 bottom 0;
+
+  background-size: 900px;
+}
+
+.contForFirstSelect {
+  width: 23%;
+  height: 133px;
+  background: #f9fbff;
+  border: 0.25px solid #2330a4;
+  box-shadow: 0px 4px 35px 10px rgba(0, 0, 0, 0.05);
+  border-radius: 20px;
+}
+
+.contForSelects {
+  margin-left: 17px;
+  width: 76%;
+  background: #f9fbff;
+  border: 0.25px solid #2330a4;
+  box-shadow: 0px 4px 35px 10px rgba(0, 0, 0, 0.05);
+  border-radius: 20px;
+}
+
+::ng-deep .mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element {
+  opacity: 0.03 !important; /*click effect color change*/
+  background-color: rgb(88, 57, 57) !important;
+}
+::ng-deep .mat-radio-button.mat-accent .mat-radio-inner-circle {
+  background-color: rgb(133, 0, 163) !important; /*inner circle color change*/
+}
+::ng-deep.mat-radio-button.mat-accent.mat-radio-checked
+  .mat-radio-outer-circle {
+  border-color: rgb(80, 82, 185) !important; /*outer ring color change*/
+}
+::ng-deep.mat-radio-outer-circle {
+  border-color: rgb(133, 0, 163) !important; /*outer ring color change*/
+}
+
+@media only screen and (min-width: 0px) and (max-width: 991px) {
+  .contForSelects {
+    height: 600px;
+    width: 90%;
+    margin: auto;
+    margin-top: 10px;
+  }
+
+  .contForFirstSelect {
+    margin-bottom: 5px;
+    width: 90%;
+    margin-left: 17px;
+    margin: auto;
+  }
+}

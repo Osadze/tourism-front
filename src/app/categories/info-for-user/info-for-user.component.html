@@ -1,0 +1,40 @@
+<div
+  class="conteiner info row"
+  [style.background-image]="
+    'url(../../../assets/background-images/sesonal.png)'
+  "
+>
+  <div
+    style="
+      min-height: 74vh;
+      display: flex;
+      justify-content: center;
+      gap: 100px;
+      padding-top: 180px;
+    "
+  >
+    <a routerLink="CTop15Component" class="contForSelectBox frame">
+      <p routerLinkActive="act-text" routerLinkActive="act-text">
+        {{ "interVisit.top10" | translate }}
+      </p>
+    </a>
+
+    <a routerLink="CVisitsCountComponent" class="contForSelectBox frame">
+      <p routerLinkActive="act-text" routerLinkActive="act-text">
+        {{ "interVisit.visits" | translate }}
+      </p>
+    </a>
+
+    <a routerLink="CBorderTypeComponent" class="contForSelectBox frame">
+      <p routerLinkActive="act-text" routerLinkActive="act-text">
+        {{ "interVisit.borderType" | translate }}
+      </p>
+    </a>
+
+    <a routerLink="CBorderComponent" class="contForSelectBox frame">
+      <p routerLinkActive="act-text" routerLinkActive="act-text">
+        {{ "interVisit.border" | translate }}
+      </p>
+    </a>
+  </div>
+</div>

@@ -1,0 +1,85 @@
+@import "../../../assets/styles/_media-queries.scss";
+
+.bgImage {
+  background: url("../../../assets/c-default-indicators/worldMap.png"),
+    url("../../../assets/c-default-indicators/Plan.png") #f9fbff;
+  background-repeat: no-repeat, no-repeat;
+  background-position: 99% 64%, 3% 11%;
+}
+
+.top10Heading {
+  font-size: 1.5rem;
+  line-height: 38px;
+  color: #3d3d3e;
+  // padding-top: 2%;
+}
+.selectCont {
+  background: #ffffff;
+  border: 0.5px solid #5c4fc9;
+  border-radius: 20px;
+}
+.timePer {
+  color: #929497;
+  background-repeat: no-repeat;
+  padding-left: 30px;
+  padding-top: 4px;
+  font-size: 0.875rem;
+}
+.top10Texts {
+  font-size: 0.875rem;
+  color: #3d3d3e;
+}
+
+.sel {
+  font-size: 14px;
+  color: #3d3d3e;
+  padding: 15px;
+  font-style: normal;
+}
+.compareBTN {
+  margin-top: 25px;
+  padding: 12px !important;
+  width: 100%;
+  border: none;
+  background-color: #51459f;
+  text-align: center;
+  border-radius: 10px;
+  font-size: 1rem;
+  color: #ffffff;
+}
+.chartDiv {
+  height: 639px;
+  background: #ffffff;
+  box-shadow: 0px 4px 50px 5px rgba(0, 0, 0, 0.05);
+  border-radius: 15px;
+  @include tablet {
+    width: 100% !important;
+    margin-top: 40px;
+  }
+}
+.top10 {
+  width: 270px;
+  background: rgba(235, 237, 246, 0.5);
+  backdrop-filter: blur(2px);
+  border-radius: 15px;
+  p {
+    font-size: 1.25rem;
+    line-height: 38px;
+    color: #3d3d3e;
+    margin-top: 20px;
+    width: 100%;
+    text-align: center;
+  }
+  .comment {
+    margin-top: 0px;
+    font-size: 0.7rem;
+    line-height: 15px;
+    text-align: left;
+  }
+}
+
+@media (max-width: 1600px) {
+  .chartDiv {
+    width: 70%;
+  }
+}

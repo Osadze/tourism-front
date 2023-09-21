@@ -1,0 +1,191 @@
+.selected {
+  background-color: aqua;
+}
+mat-slider {
+  width: 100%;
+  height: 100%;
+}
+
+.chart__title {
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: center !important;
+  align-items: center;
+  gap: 20px;
+  padding-top: 13px;
+  p {
+    margin-bottom: 0px;
+  }
+}
+.color {
+  background-color: #f9fbff;
+}
+
+.icon-display {
+  transform: scale(2);
+}
+
+.plpr {
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+}
+
+.selectParent {
+  width: 80px;
+  overflow: hidden;
+}
+
+.selectParent select {
+  text-indent: 1px;
+  text-overflow: "";
+  width: 100px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  padding: 2px 2px 2px 2px;
+  border: none;
+  background: transparent
+    url("http://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/br_down.png")
+    no-repeat 60px center;
+}
+
+.tableTitle {
+  font-family: "FiraGO";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 28px;
+  font-variant: small-caps;
+  font-feature-settings: "case" on;
+  color: #ffffff;
+}
+
+.centerTitles {
+  display: table-cell;
+  vertical-align: middle;
+  position: -webkit-sticky; // this is for all Safari (Desktop & iOS), not for Chrome
+  position: sticky !important;
+  top: 0;
+  z-index: 1; // any positive value, layer order is global
+  background: #fff; // any bg-color to overlap
+}
+
+.inputForCountrySearch {
+  font-family: "FiraGO";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 28px;
+  font-variant: small-caps;
+  font-feature-settings: "case" on;
+  width: 227%;
+  height: 3em;
+  padding: 1%;
+  padding-left: 3%;
+}
+
+.contForSelects {
+  width: 100%;
+  height: 133px;
+  background: #f9fbff;
+  border: 0.25px solid #2330a4;
+  box-shadow: 0px 4px 35px 10px rgba(0, 0, 0, 0.05);
+  border-radius: 20px;
+}
+
+.shortSelectCont {
+  width: 100%;
+  height: 133px;
+  background: #f9fbff;
+  border: 0.25px solid #2330a4;
+  box-shadow: 0px 4px 35px 10px rgba(0, 0, 0, 0.05);
+  border-radius: 20px;
+}
+.form-group {
+  margin-bottom: 2rem !important;
+}
+::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: black;
+  opacity: 1; /* Firefox */
+}
+
+::ng-deep {
+  .mat-slider-thumb-label {
+    transform: rotate(45deg) !important;
+    border-radius: 50% 50% 0 !important;
+  }
+  .mat-slider-thumb {
+    transform: scale(0) !important;
+  }
+  .mat-slider-thumb-label-text {
+    opacity: 1 !important;
+  }
+}
+
+.w13 {
+  width: 130%;
+}
+.w14 {
+  width: 140%;
+}
+
+.w10 {
+  width: 100%;
+}
+
+.w12 {
+  width: 170%;
+}
+
+.w18 {
+  width: 180%;
+}
+
+::ng-deep .mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element {
+  opacity: 0.03 !important; /*click effect color change*/
+  background-color: rgb(255, 133, 200) !important;
+}
+::ng-deep .mat-radio-button.mat-accent .mat-radio-inner-circle {
+  background-color: rgb(133, 0, 163) !important; /*inner circle color change*/
+}
+::ng-deep.mat-radio-button.mat-accent.mat-radio-checked
+  .mat-radio-outer-circle {
+  border-color: rgb(80, 82, 185) !important; /*outer ring color change*/
+}
+::ng-deep.mat-radio-outer-circle {
+  border-color: rgb(133, 0, 163) !important; /*outer ring color change*/
+}
+
+@media only screen and (min-width: 0px) and (max-width: 991px) {
+  .contForSelects {
+    height: 700px;
+    width: 95%;
+    margin: auto;
+    margin-top: 10px;
+  }
+
+  .shortSelectCont {
+    width: 100%;
+    margin: auto;
+  }
+
+  .w13 {
+    width: 200px;
+  }
+  .w14 {
+    width: 200px;
+  }
+
+  .w10 {
+    width: 200px;
+  }
+
+  .w12 {
+    width: 200px;
+  }
+
+  .w18 {
+    width: 200px;
+  }
+}

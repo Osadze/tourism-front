@@ -1,0 +1,255 @@
+<div class="backgroundImg">
+  <div class="container-for-header default__padding pb-2">
+    <div class="col-lg-12 downCharts">
+      <div class="contForSelects">
+        <section class="select__first">
+          <div class="indicator__select">
+            <p class="fontForSelectUpperTitle">
+              {{ "defIndicator.indic" | translate }}
+            </p>
+
+            <div class="fontForSelectTitle select__el">
+              <i
+                class="select__icon"
+                style="
+                  background: url(assets/c-default-indicators/Indicator.png);
+                "
+              ></i>
+              <select
+                class="select2 sel1"
+                [(ngModel)]="indicator"
+                (change)="selectIndicatorChange()"
+                style="
+                  background: url(assets/c-default-indicators/Down.png)
+                    no-repeat right transparent;
+                "
+              >
+                <option
+                  [disabled]="ind.isDisabled"
+                  *ngFor="let ind of indicators"
+                  value="{{ ind.value }}"
+                >
+                  {{ ind.name }}
+                </option>
+              </select>
+            </div>
+          </div>
+          <div class="period__select">
+            <p class="fontForSelectUpperTitle">
+              {{ "defIndicator.period" | translate }}
+            </p>
+            <div class="fontForSelectTitle select__el">
+              <i
+                class="select__icon"
+                style="
+                  background: url(assets/c-default-indicators/Calendar.png);
+                "
+              ></i>
+              <select
+                [(ngModel)]="period"
+                (change)="selectPeriodChange()"
+                class="select2 sel3"
+                style="
+                  background: url(assets/c-default-indicators/Down.png)
+                    no-repeat right transparent;
+                "
+              >
+                <option
+                  [disabled]="pr.isDisabled"
+                  *ngFor="let pr of periods"
+                  value="{{ pr.value }}"
+                >
+                  {{ pr.name }}
+                </option>
+              </select>
+            </div>
+          </div>
+        </section>
+        <section class="select__sec">
+          <div class="tourtype__select">
+            <p class="fontForSelectUpperTitle">
+              {{ "defIndicator.tourismType" | translate }}
+            </p>
+
+            <div class="fontForSelectTitle select__el">
+              <i
+                class="select__icon"
+                style="
+                  background: url(assets/c-default-indicators/VisitType.png);
+                "
+              ></i>
+              <select
+                [(ngModel)]="tType"
+                (change)="selecttTypeChange()"
+                class="select2 sel3"
+                style="
+                  background: url(assets/c-default-indicators/Down.png)
+                    no-repeat right transparent;
+                "
+              >
+                <option
+                  [disabled]="tour.isDisabled"
+                  *ngFor="let tour of tTypes"
+                  value="{{ tour.value }}"
+                >
+                  {{ tour.name }}
+                </option>
+              </select>
+            </div>
+          </div>
+          <div class="visittype__select">
+            <p class="fontForSelectUpperTitle">
+              {{ "defIndicator.tourType" | translate }}
+            </p>
+            <div class="fontForSelectTitle select__el">
+              <i
+                class="select__icon"
+                style="
+                  background: url(assets/c-default-indicators/TourismType.png);
+                "
+              ></i>
+              <select
+                [(ngModel)]="vType"
+                (change)="selectvTypeChange()"
+                class="select2 sel4"
+                style="
+                  background: url(assets/c-default-indicators/Down.png)
+                    no-repeat right transparent;
+                "
+              >
+                <option
+                  [disabled]="visit.isDisabled"
+                  *ngFor="let visit of vTypes"
+                  value="{{ visit.value }}"
+                >
+                  {{ visit.name }}
+                </option>
+              </select>
+            </div>
+          </div>
+        </section>
+        <i
+          (click)="ClearFilters()"
+          class="clear__btn"
+          style="background: url(assets/c-default-indicators/Clear.png)"
+        >
+          <span class="clear__tooltip">{{
+            "defIndicator.clearTooltip" | translate
+          }}</span>
+        </i>
+      </div>
+      <div class="col-lg-12 mt-4 downCharts">
+        <div class="contForFirstChart">
+          <h2 class="col-11">
+            {{ titleForMainChart }}
+          </h2>
+          <!-- <div class="col-1">
+            <img style="padding-left: 10%; padding-top: 65%" src="assets/c-default-indicators/Save.png" alt=""/>
+          </div> -->
+          <div id="chartdiv" style="height: 90%"></div>
+          <p
+            class="note"
+            *ngIf="
+              indicator != 0 &&
+              indicator != 2 &&
+              indicator != 3 &&
+              indicator != 6
+            "
+          >
+            {{ "note.mainIndicators" | translate }}
+          </p>
+        </div>
+      </div>
+      <div class="row mb-4 downCharts">
+        <div class="col-lg-6 mt-4">
+          <div class="contForBackCharts">
+            <div class="row">
+              <div class="col-11 fontForChartTitle">
+                {{ titleForCostsChart }}
+              </div>
+              <!-- <div class="col-1">
+              <img style="padding-left: 10%; padding-top: 65%" src="assets/c-default-indicators/Save.png" alt=""/>
+            </div> -->
+            </div>
+            <div id="chartdiv2" style="height: 570px"></div>
+            <div
+              class="d-flex justify-content-center avarigeCosts"
+              style="margin-bottom: 10px"
+            >
+              <div class="form-check form-check-inline">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="inlineRadioOptions"
+                  id="inlineRadio1"
+                  value="option1"
+                  [checked]="true"
+                  (click)="avarigeOrNot(false)"
+                />
+                <label class="form-check-label" for="inlineRadio1">{{
+                  "defIndicator.allExpence" | translate
+                }}</label>
+              </div>
+
+              <div class="form-check form-check-inline">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="inlineRadioOptions"
+                  id="inlineRadio2"
+                  value="option2"
+                  (click)="avarigeOrNot(true)"
+                />
+                <label class="form-check-label" for="inlineRadio2">{{
+                  "defIndicator.avarExpence" | translate
+                }}</label>
+              </div>
+            </div>
+            <p class="note">{{ "note.mainIndicators" | translate }}</p>
+          </div>
+        </div>
+        <div class="col-lg-6 mt-4">
+          <div class="contForBackCharts">
+            <div class="row">
+              <div class="col-11 fontForChartTitle">
+                {{ titleForPerNightsChart }}
+              </div>
+              <!-- <div class="col-1">
+              <img style="padding-left: 10%; padding-top: 65%" src="assets/c-default-indicators/Save.png" alt=""/>
+            </div> -->
+            </div>
+            <div id="chartdiv3" style="height: 570px"></div>
+            <div
+              class="d-flex justify-content-center avarigeCosts"
+              style="margin-bottom: 10px; visibility: hidden"
+            >
+              <div class="form-check form-check-inline">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="inlineRadioOptions"
+                />
+                <label class="form-check-label" for="inlineRadio1">{{
+                  "defIndicator.allExpence" | translate
+                }}</label>
+              </div>
+
+              <div class="form-check form-check-inline">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="inlineRadioOptions"
+                />
+                <label class="form-check-label" for="inlineRadio2">{{
+                  "defIndicator.avarExpence" | translate
+                }}</label>
+              </div>
+            </div>
+            <p class="note">{{ "note.mainIndicators" | translate }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- </div> -->
+</div>

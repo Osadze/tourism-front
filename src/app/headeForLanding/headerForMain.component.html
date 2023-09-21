@@ -1,0 +1,122 @@
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script
+  async
+  src="https://www.googletagmanager.com/gtag/js?id=G-L8C32VYJ4E"
+></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag("js", new Date());
+  gtag("config", "G-L8C32VYJ4E");
+</script>
+
+<header class="header">
+  <a href="/" class="header__cnt1">
+    <ng-template [ngIf]="lang == 'ENG'" [ngIfElse]="logoGeo">
+      <img
+        class="main__logo"
+        src="assets/img/logo/geostat_en.svg"
+        alt="Saqstati Logo"
+      />
+    </ng-template>
+    <ng-template #logoGeo>
+      <img
+        class="main__logo"
+        src="assets/img/logo/logoKa.svg"
+        alt="Saqstati Logo"
+      />
+    </ng-template>
+    <h1 class="title">
+      {{ "header.title" | translate }}
+    </h1>
+  </a>
+  <div class="header__cnt2">
+    <button class="lang__btn" id="Lang" (click)="changeLang()">
+      <i
+        class="header__icon"
+        [ngStyle]="{ 'background-image': 'url(' + langImg + ')' }"
+      ></i>
+      {{ lang === "GEO" ? "ENG" : "GEO" }}
+    </button>
+    <a
+      href="/"
+      class="header__icon"
+      [ngStyle]="{ 'background-image': 'url(' + facebook + ')' }"
+    >
+    </a>
+    <a
+      href="/"
+      class="header__icon"
+      [ngStyle]="{ 'background-image': 'url(' + twitter + ')' }"
+    >
+    </a>
+    <a
+      href="/"
+      class="header__icon"
+      [ngStyle]="{ 'background-image': 'url(' + linkedIN + ')' }"
+    >
+    </a>
+  </div>
+</header>
+
+<!-- <div class="container-for-header">
+  <div class="row">
+    <div class="col-md-6 text-center row">
+      <div class="col-md-3 col-sm text-center row grow mainLogo">
+        <a class="text-left mainLogo" routerLink="/">
+          <img
+            id="logo"
+            class="l"
+            src="assets/header/Logo-Geostat.png"
+            alt="geostat"
+          />
+          
+        </a>
+      </div>
+
+      <div class="col-lg-3 col-md-12 text-center col-sm-12 text-center">
+        <p class="font title go-center ml-4 pb-5 mainTit">{{ title }}</p>
+      </div>
+    </div>
+    <div class="text-right col-md-4 col-sm-12">
+
+      <a routerLink="CIndexENComponent" id="Lang" (click)="changeLang()">
+        <p
+          routerLinkActive="act-text"
+          class="text-center"
+          routerLinkActive="act-text">
+          
+          <button type="button"  class="btn mr-5 btn-lang">
+            <img src="assets/header/lang.png" />  {{ lang==='GEO' ? "EN" : "GEO" }}
+          </button>
+
+        </p>        
+        
+      </a>
+    </div>
+    <div class="text-right col-md-2 col-sm-12 logos" style="margin: 5px">
+      <div class="logoss">
+        <a
+          id="Facebook"
+          href="https://www.facebook.com/geostat.ge/"
+          target="_blank"
+          ><button type="button" class="btn facebook">
+            <img src="assets/header/Facebook.png" /></button
+        ></a>
+        <a id="Twitter" href="https://twitter.com/Geostat100" target="_blank"
+          ><button type="button" class="btn twitter">
+            <img src="assets/header/Twitter.png" /></button
+        ></a>
+        <a
+          id="Linkedin"
+          href="https://www.linkedin.com/company/national-statistics-office-of-georgia"
+          target="_blank"
+          ><button type="button" class="btn linkedin">
+            <img src="assets/header/Linkedin.png" /></button
+        ></a>
+      </div>
+    </div>
+  </div>
+</div> -->

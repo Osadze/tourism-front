@@ -1,0 +1,35 @@
+<div class="outerCard">
+  <div class="topPanel">
+    <button class="prevYearButton" (click)="decrementYear()">
+      <i class="arrow left"></i>
+    </button>
+    <span class="yearLabel">{{ years[currentYearIndex] }}</span>
+    <button class="nextYearButton" (click)="incrementYear()">
+      <i class="arrow right"></i>
+    </button>
+  </div>
+  <div class="contentPanel">
+    <div
+      (click)="onClick(i)"
+      class="monthItem"
+      *ngFor="let month of monthDataSlice; let i = index"
+      [ngClass]="{
+        isEdge:
+          rangeIndexes[0] === globalIndexOffset + i ||
+          rangeIndexes[1] === globalIndexOffset + i,
+        notCurrentYear: currentYearIndex === 0 ? i > 11 : i < 6 || i > 17
+      }"
+    >
+      <div
+        class="monthItemHighlight"
+        [ngClass]="{
+          inRange: month.isInRange,
+          isLowerEdge: month.isLowerEdge,
+          isUpperEdge: month.isUpperEdge
+        }"
+      >
+        {{ month.monthName }}
+      </div>
+    </div>
+  </div>
+</div>
