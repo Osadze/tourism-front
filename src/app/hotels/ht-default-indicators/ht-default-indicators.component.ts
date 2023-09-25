@@ -64,7 +64,7 @@ export class HtDefaultIndicatorsComponent implements OnInit, OnDestroy {
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe((res) => {
         for (const key of Object.keys(res)) {
-          if (res[key] != 7 && res[key] != 12 && res[key] != 13) {
+          if (res[key] != 12 && res[key] != 13) {
             this.regions.push({
               name: key,
               value: res[key],
@@ -130,7 +130,7 @@ export class HtDefaultIndicatorsComponent implements OnInit, OnDestroy {
   years: number[] = [];
   year: number = 0;
 
-  optList: string = '1, 2, 3, 4, 5, 6, 8, 9, 10, 11';
+  optList: string = '1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11';
 
   addRemoveRegion() {
     let list: string[] = [];
