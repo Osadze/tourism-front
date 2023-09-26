@@ -36,11 +36,11 @@ export class InteractiveMapComponent implements OnInit, OnDestroy {
 
   unsubscribe$ = new Subject<void>();
 
-  yearSelect = 0;
-  quarterSelect = 0;
-  monthSelect = 0;
-  genderSelect = 0;
-  ageSelect = 0;
+  yearSelect: number = 0;
+  quarterSelect: number = 0;
+  monthSelect: number = 0;
+  genderSelect: number = 0;
+  ageSelect: number = 0;
   mapchart!: am4maps.MapChart;
   worldSeries!: am4maps.MapPolygonSeries;
   similarDatas: any;
@@ -54,6 +54,21 @@ export class InteractiveMapComponent implements OnInit, OnDestroy {
   quarters: IDropDown[] = [];
   agesOptions: IDropDown[] = [];
   monthsOptions: IDropDown[] = [];
+
+  sliderLowestVal: number = 0;
+  sliderHighestVal: number = 0;
+  sliderValue: number = 0;
+  countriesForChart: any = [];
+  selectedYear: number = 0;
+  selectedQuarter: number = 0;
+  selectedMonth: number = 0;
+  selectedGender: number = 0;
+  selectedAge: number = 0;
+  tourType: number = 0;
+  public amDatas = [];
+  selectedCountryDataId: number = -1;
+  tempData: any;
+  yearsOptions: number[] = [];
 
   perNights = false;
   notIn = false;
@@ -178,66 +193,64 @@ export class InteractiveMapComponent implements OnInit, OnDestroy {
     this.getDataForTable();
   }
 
-  async ngOnInit(): Promise<void> {
-    this.SelectCountryData1();
-    this.getDataForTable();
-
-    this.GetVisitTypes();
-    this.GetGenderOptions();
-    this.GetAges();
-    this.GetQuarters();
-    this.GetMonthies();
-
-    this.mapchart = am4core.create('chartdiv', am4maps.MapChart);
-    this.worldSeries = this.mapchart.series.push(
-      new am4maps.MapPolygonSeries()
-    );
-
-    if (!this.perNights) {
-      this.getCountriesList();
-    } else {
-      this.getCountriesListNights();
-    }
-
+  ngOnInit(): void {
     this.getYears()
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe((arg) => {
-        var arry = new Array<number>();
-        arg.map((o: any) => {
-          arry.push(parseInt(o.id));
-          return arry;
-        });
-
-        this.yearSelect = Math.max(...arry);
-        this.selectedYear = Math.max(...arry);
-        this.sliderLowestVal = Math.min(...arry);
-        this.sliderHighestVal = Math.max(...arry);
-        this.sliderValue = Math.max(...arry);
-        this.yearsOptions = arg.sort((a: any, b: any) =>
-          b.value.localeCompare(a.value)
+        arg = arg.sort((a: { id: string }, b: { id: string }) =>
+          b.id.localeCompare(a.id)
         );
-      });
 
-    let polygonSeries = this.worldSeries;
-    this.mapchart.exporting.menu = new am4core.ExportMenu();
-    this.mapchart.exporting.filePrefix =
-      this.lang === 'ENG' ? 'Interactive map' : 'ინტერაქტიული რუკა';
-
-    this.mapchart.exporting.menu.items[0].icon =
-      '../../../assets/HomePage/download_icon.svg';
-    this.mapchart.exporting.menu.align = 'left';
-    this.mapchart.exporting.menu.verticalAlign = 'top';
-    this.mapchart.exporting.adapter.add('data', function (data) {
-      data.data = [];
-      for (var i = 0; i < polygonSeries.data.length; i++) {
-        var row = polygonSeries.data[i];
-        data.data.push({
-          qveyana: row.name,
-          value: row.value,
+        this.yearSelect = Number(arg[0].id);
+        this.selectedYear = Number(arg[0].id);
+        this.sliderLowestVal = Number(arg[arg.length - 1].id);
+        this.sliderHighestVal = Number(arg[0].id);
+        this.sliderValue = Number(arg[0]);
+        arg.forEach((el: any) => {
+          this.yearsOptions.push(Number(el.id));
         });
-      }
-      return data;
-    });
+
+        this.SelectCountryData1();
+        this.getDataForTable();
+
+        this.GetVisitTypes();
+        this.GetGenderOptions();
+        this.GetAges();
+        this.GetQuarters();
+        this.GetMonthies();
+
+        this.mapchart = am4core.create('chartdiv', am4maps.MapChart);
+        this.worldSeries = this.mapchart.series.push(
+          new am4maps.MapPolygonSeries()
+        );
+
+        if (!this.perNights) {
+          this.getCountriesList();
+        } else {
+          this.getCountriesListNights();
+        }
+
+        let polygonSeries = this.worldSeries;
+        this.mapchart.exporting.menu = new am4core.ExportMenu();
+        this.mapchart.exporting.filePrefix =
+          this.lang === 'ENG' ? 'Interactive map' : 'ინტერაქტიული რუკა';
+
+        this.mapchart.exporting.menu.items[0].icon =
+          '../../../assets/HomePage/download_icon.svg';
+        this.mapchart.exporting.menu.align = 'left';
+        this.mapchart.exporting.menu.verticalAlign = 'top';
+        this.mapchart.exporting.adapter.add('data', function (data) {
+          data.data = [];
+          for (var i = 0; i < polygonSeries.data.length; i++) {
+            var row = polygonSeries.data[i];
+            data.data.push({
+              qveyana: row.name,
+              value: row.value,
+            });
+          }
+          return data;
+        });
+      });
   }
 
   checkVisits = false;
@@ -291,21 +304,6 @@ export class InteractiveMapComponent implements OnInit, OnDestroy {
   myarr(myarr: any): any {
     throw new Error('Method not implemented.');
   }
-
-  sliderLowestVal: number = 0;
-  sliderHighestVal: number = 0;
-  sliderValue: number = 0;
-  countriesForChart: any = [];
-  selectedYear: number = 0;
-  selectedQuarter: number = 0;
-  selectedMonth: number = 0;
-  selectedGender: number = 0;
-  selectedAge: number = 0;
-  tourType: number = 0;
-  public amDatas = [];
-  selectedCountryDataId: number = -1;
-  tempData: any;
-  yearsOptions: any = [];
 
   GetGenderOptions() {
     this.defService

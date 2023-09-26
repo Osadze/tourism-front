@@ -84,9 +84,9 @@
                   "
                 >
                   <option
-                    [label]="datas.value"
+                    [label]="datas"
                     *ngFor="let datas of yearsOptions"
-                    [value]="datas.value"
+                    [value]="datas"
                   ></option>
                 </select>
               </div>
@@ -486,7 +486,9 @@
                 />
 
                 <tr
-                  (click)="SelectCountryData(rs.countryId); georgiaOrNot(rs.countryId)"
+                  (click)="
+                    SelectCountryData(rs.countryId); georgiaOrNot(rs.countryId)
+                  "
                   *ngFor="let rs of dataForTable | filter : searchText"
                 >
                   <th [id]="rs.countryId + '1'">{{ rs.countryNameGe }}</th>
