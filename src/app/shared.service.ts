@@ -10,7 +10,7 @@ export class SharedService {
 
   getDropDownText(id: any, object: any) {
     const selObj = _.filter(object, (o: any) => {
-      return _.includes(id, o.id);
+      return _.includes(id, o.name);
     });
     return selObj;
   }

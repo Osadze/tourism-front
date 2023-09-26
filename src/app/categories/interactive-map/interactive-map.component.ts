@@ -209,6 +209,7 @@ export class InteractiveMapComponent implements OnInit, OnDestroy {
         });
 
         this.yearSelect = Math.max(...arry);
+        this.selectedYear = Math.max(...arry);
         this.sliderLowestVal = Math.min(...arry);
         this.sliderHighestVal = Math.max(...arry);
         this.sliderValue = Math.max(...arry);
@@ -293,9 +294,9 @@ export class InteractiveMapComponent implements OnInit, OnDestroy {
 
   sliderLowestVal: number = 0;
   sliderHighestVal: number = 0;
-  sliderValue: number = 2022;
+  sliderValue: number = 0;
   countriesForChart: any = [];
-  selectedYear: number = 2022;
+  selectedYear: number = 0;
   selectedQuarter: number = 0;
   selectedMonth: number = 0;
   selectedGender: number = 0;
@@ -508,10 +509,7 @@ export class InteractiveMapComponent implements OnInit, OnDestroy {
     this.getDataForTable();
   }
   selectYearChange() {
-    this.selectedYear = this.commonService.getDropDownText(
-      this.yearSelect,
-      this.yearsOptions
-    )[0].value;
+    this.selectedYear = this.yearSelect;
     this.sliderValue = this.yearSelect;
 
     if (!this.perNights) {
@@ -542,10 +540,7 @@ export class InteractiveMapComponent implements OnInit, OnDestroy {
     if (this.monthSelect == 0) {
       this.selectedMonth = 0;
     } else {
-      this.selectedMonth = this.commonService.getDropDownText(
-        this.monthSelect,
-        this.monthsOptions
-      )[0].value;
+      this.selectedMonth = this.monthSelect;
     }
 
     if (!this.perNights) {
