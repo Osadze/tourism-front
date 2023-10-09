@@ -6,9 +6,9 @@ import { DataForMapChart } from './dataForMapChart';
   providedIn: 'root',
 })
 export class RegionService {
-  readonly APIUrl: string = 'http://tourismapi.geostat.ge/api/region';
+  readonly APIUrl: string = 'https://tourismapi.geostat.ge/api/region';
 
-  readonly SharedURL: string = 'http://tourismapi.geostat.ge/api/Shared';
+  readonly SharedURL: string = 'https://tourismapi.geostat.ge/api/Shared';
 
   constructor(private http: HttpClient) {
     this.lang = localStorage.getItem('Language');

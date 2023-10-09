@@ -14,7 +14,8 @@ import { Subject, takeUntil } from 'rxjs';
   styleUrls: ['./default-indicator.component.scss'],
 })
 export class DefaultIndicatorComponent implements OnInit, OnDestroy {
-  readonly APIUrl: string = 'http://tourismapi.geostat.ge/api/DefaultIndicator';
+  readonly APIUrl: string =
+    'https://tourismapi.geostat.ge/api/DefaultIndicator';
 
   unsubscribe$ = new Subject<void>();
 

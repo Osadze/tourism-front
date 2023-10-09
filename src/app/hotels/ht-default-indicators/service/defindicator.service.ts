@@ -7,9 +7,9 @@ import { IDropDown } from 'src/app/common/IDropDown';
   providedIn: 'root',
 })
 export class DefindicatorService {
-  readonly APIUrl: string = 'http://tourismapi.geostat.ge/api/Hotels';
+  readonly APIUrl: string = 'https://tourismapi.geostat.ge/api/Hotels';
 
-  readonly SharedUrl: string = 'http://tourismapi.geostat.ge/api/Shared';
+  readonly SharedUrl: string = 'https://tourismapi.geostat.ge/api/Shared';
 
   unsubscribe$ = new Subject<void>();
 

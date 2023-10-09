@@ -7,11 +7,11 @@ import { IIndicator } from 'src/app/common/IIndicator';
   providedIn: 'root',
 })
 export class AdminPanelService {
-  readonly APIUrl: string = 'http://tourismapi.geostat.ge/api/User/indicators';
+  readonly APIUrl: string = 'https://tourismapi.geostat.ge/api/User/indicators';
 
-  readonly EditUrl: string = 'http://tourismapi.geostat.ge/api/User/edit';
+  readonly EditUrl: string = 'https://tourismapi.geostat.ge/api/User/edit';
 
-  readonly PatchUrl: string = 'http://tourismapi.geostat.ge/api/User/forPatch';
+  readonly PatchUrl: string = 'https://tourismapi.geostat.ge/api/User/forPatch';
 
   constructor(private http: HttpClient) {
     this.lang = localStorage.getItem('Language');

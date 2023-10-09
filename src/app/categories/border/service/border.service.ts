@@ -5,9 +5,9 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class BorderService {
-  readonly APIUrl: string = 'http://tourismapi.geostat.ge/api/International';
+  readonly APIUrl: string = 'https://tourismapi.geostat.ge/api/International';
 
-  readonly SharedUrl: string = 'http://tourismapi.geostat.ge/api/Shared';
+  readonly SharedUrl: string = 'https://tourismapi.geostat.ge/api/Shared';
 
   constructor(private http: HttpClient) {
     this.lang = localStorage.getItem('Language');

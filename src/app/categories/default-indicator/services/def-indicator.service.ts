@@ -6,9 +6,10 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root',
 })
 export class DefIndicatorService implements OnInit {
-  readonly APIUrl: string = 'http://tourismapi.geostat.ge/api/DefaultIndicator';
+  readonly APIUrl: string =
+    'https://tourismapi.geostat.ge/api/DefaultIndicator';
 
-  readonly SharedUrl: string = 'http://tourismapi.geostat.ge/api/Shared';
+  readonly SharedUrl: string = 'https://tourismapi.geostat.ge/api/Shared';
 
   constructor(private http: HttpClient) {
     this.lang = localStorage.getItem('Language');

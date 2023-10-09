@@ -8,9 +8,9 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class ComparisionService {
-  readonly APIUrl: string = 'http://tourismapi.geostat.ge/api/Comperision';
+  readonly APIUrl: string = 'https://tourismapi.geostat.ge/api/Comperision';
 
-  readonly SharedURL: string = 'http://tourismapi.geostat.ge/api/Shared';
+  readonly SharedURL: string = 'https://tourismapi.geostat.ge/api/Shared';
 
   constructor(private http: HttpClient) {
     this.lang = localStorage.getItem('Language');

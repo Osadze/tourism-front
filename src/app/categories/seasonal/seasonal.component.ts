@@ -13,7 +13,7 @@ import { DefIndicatorService } from '../default-indicator/services/def-indicator
   styleUrls: ['./seasonal.component.scss'],
 })
 export class SeasonalComponent implements OnInit, OnDestroy {
-  readonly APIUrl: string = 'http://tourismapi.geostat.ge/api/Visitors';
+  readonly APIUrl: string = 'https://tourismapi.geostat.ge/api/Visitors';
 
   unsubscribe$ = new Subject<void>();
 
@@ -204,7 +204,7 @@ export class SeasonalComponent implements OnInit, OnDestroy {
 
   getSeasonalPerc() {
     if (this.tType == 3) {
-      var url = 'http://tourismapi.geostat.ge/api/Visitors/VisitorFilterLOCAL';
+      var url = 'https://tourismapi.geostat.ge/api/Visitors/VisitorFilterLOCAL';
       this.http
         .get<any>(
           url +
@@ -226,7 +226,7 @@ export class SeasonalComponent implements OnInit, OnDestroy {
     } else if (this.tType == 1) {
       this.http
         .get<any>(
-          'http://tourismapi.geostat.ge/api/Visitors/VisitorFilterIN' +
+          'https://tourismapi.geostat.ge/api/Visitors/VisitorFilterIN' +
             '?tour=' +
             this.vType +
             '&gender=' +
@@ -245,7 +245,7 @@ export class SeasonalComponent implements OnInit, OnDestroy {
     } else if (this.tType == 2) {
       this.http
         .get<any>(
-          'http://tourismapi.geostat.ge/api/Visitors/VisitorFilterOUT' +
+          'https://tourismapi.geostat.ge/api/Visitors/VisitorFilterOUT' +
             '?tourType=' +
             this.vType +
             '&gender=' +

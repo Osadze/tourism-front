@@ -14,7 +14,7 @@ import { Subject, takeUntil } from 'rxjs';
   styleUrls: ['./ht-interactive-map.component.scss'],
 })
 export class HtInteractiveMapComponent implements OnInit, OnDestroy {
-  readonly APIUrl: string = 'http://tourismapi.geostat.ge/api/hotels';
+  readonly APIUrl: string = 'https://tourismapi.geostat.ge/api/hotels';
 
   unsubscribe$ = new Subject<void>();
 

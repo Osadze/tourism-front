@@ -13,7 +13,7 @@ import { BorderService } from '../border/service/border.service';
   styleUrls: ['./border-type.component.scss'],
 })
 export class BorderTypeComponent implements OnInit, OnDestroy {
-  readonly APIUrl: string = 'http://tourismapi.geostat.ge/api/International';
+  readonly APIUrl: string = 'https://tourismapi.geostat.ge/api/International';
 
   unsubscribe$ = new Subject<void>();
 

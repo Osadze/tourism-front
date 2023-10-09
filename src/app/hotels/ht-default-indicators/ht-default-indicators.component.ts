@@ -13,7 +13,7 @@ import { Subject, takeUntil } from 'rxjs';
   styleUrls: ['./ht-default-indicators.component.scss'],
 })
 export class HtDefaultIndicatorsComponent implements OnInit, OnDestroy {
-  readonly APIUrl: string = 'http://tourismapi.geostat.ge/api/Hotels';
+  readonly APIUrl: string = 'https://tourismapi.geostat.ge/api/Hotels';
 
   unsubscribe$ = new Subject<void>();
 

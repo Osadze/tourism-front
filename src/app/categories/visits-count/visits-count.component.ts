@@ -15,7 +15,7 @@ import { BorderService } from '../border/service/border.service';
   styleUrls: ['./visits-count.component.scss'],
 })
 export class VisitsCountComponent implements OnInit, OnDestroy {
-  readonly APIUrl: string = 'http://tourismapi.geostat.ge/api/International';
+  readonly APIUrl: string = 'https://tourismapi.geostat.ge/api/International';
 
   unsubscribe$ = new Subject<void>();
 

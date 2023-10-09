@@ -32,7 +32,7 @@ export class InteractiveMapComponent implements OnInit, OnDestroy {
 
   searchText: any;
 
-  readonly APIUrl: string = 'http://tourismapi.geostat.ge/api/visitors';
+  readonly APIUrl: string = 'https://tourismapi.geostat.ge/api/visitors';
 
   unsubscribe$ = new Subject<void>();
 

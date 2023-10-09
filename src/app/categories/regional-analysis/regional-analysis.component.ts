@@ -14,7 +14,7 @@ import { IDropDown } from 'src/app/common/IDropDown';
   styleUrls: ['./regional-analysis.component.scss'],
 })
 export class RegionalAnalysisComponent implements OnInit, OnDestroy {
-  readonly APIUrl: string = 'http://tourismapi.geostat.ge/api/region';
+  readonly APIUrl: string = 'https://tourismapi.geostat.ge/api/region';
 
   unsubscribe$ = new Subject<void>();
 
