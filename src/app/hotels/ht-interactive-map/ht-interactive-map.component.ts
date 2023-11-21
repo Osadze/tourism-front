@@ -108,6 +108,10 @@ export class HtInteractiveMapComponent implements OnInit, OnDestroy {
     this.map.zoomToMapObject(country);
   }
 
+  formatThousands(value: number) {
+    return String(value).replace(/(?!^)(?=(?:\d{3})+$)/g, ' ');
+  }
+
   getFlag(country: string) {
     if (country) {
       let dataForCountryId = this.chartDataCountries.filter((i: any) => {
@@ -432,7 +436,7 @@ export class HtInteractiveMapComponent implements OnInit, OnDestroy {
       return chart.colors.getIndex(target.dataItem.index);
     });
 
-    var year = 2006;
+    var year = 2007;
     label.text = year.toString();
 
     var interval: any;
@@ -455,7 +459,7 @@ export class HtInteractiveMapComponent implements OnInit, OnDestroy {
 
       if (year > 2022) {
         stop();
-        year = 2006;
+        year = 2007;
       }
 
       var newData: any = res[year];
@@ -467,7 +471,7 @@ export class HtInteractiveMapComponent implements OnInit, OnDestroy {
         }
       }
 
-      if (year == 2006) {
+      if (year == 2007) {
         series.interpolationDuration = stepDuration / 4;
         valueAxis.rangeChangeDuration = stepDuration / 4;
       } else {

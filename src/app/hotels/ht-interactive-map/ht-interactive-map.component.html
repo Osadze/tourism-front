@@ -95,7 +95,7 @@
             (click)="getBigChart(c.countryName, lang, c.id)"
           >
             <td style="text-align: left">{{ c.countryName || c.name }}</td>
-            <td style="text-align: center">{{ c.value }}</td>
+            <td style="text-align: center">{{ formatThousands(c.value) }}</td>
           </tr>
         </tbody>
       </table>
