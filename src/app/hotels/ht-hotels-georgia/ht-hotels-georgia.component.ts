@@ -118,40 +118,45 @@ export class HtHotelsGeorgiaComponent implements AfterViewInit, OnDestroy {
   }
 
   addMarkers(lst: any) {
-    lst.forEach((element: { lat: number; lng: number; taxId: string }) => {
-      let greenIcon = L.icon({
-        iconUrl: '../../../assets/hotelIcons/hotelLocation.png',
-        iconSize: [30, 30],
-        // shadowUrl: 'leaf-shadow.png',
-      });
+    lst.forEach(
+      (element: {
+        lat: number;
+        lng: number;
+        taxId: string;
+        inn_Name: string;
+      }) => {
+        let greenIcon = L.icon({
+          iconUrl: '../../../assets/hotelIcons/hotelLocation.png',
+          iconSize: [30, 30],
+          // shadowUrl: 'leaf-shadow.png',
+        });
 
-      let marker = L.marker([element.lat, element.lng], {
-        title: element.taxId,
-        icon: greenIcon,
-      });
-      this.markerList.push(marker);
-      marker.addTo(this.map);
-      // this.getHotelInfo(Number(element.taxId), marker);
-      if (this.lang == 'GEO') {
-        let hrGeo = `http://br.geostat.ge/register_geo/index.php?action=enterprizes&srch1=${element.taxId}`;
-        marker.bindPopup(
-          'საიდენტიფიკაციო კოდი: ' +
-            element.taxId +
-            '<br/>' +
-            `<center><a target="_blank" href=${hrGeo}>ინფო</a></center>`
-        );
-      }
-      if (this.lang == 'ENG') {
-        let hrEn = `http://br.geostat.ge/register_geo/index.php?action=enterprizes&srch1=${element.taxId}&lang=en`;
+        let marker = L.marker([element.lat, element.lng], {
+          title: element.taxId,
+          icon: greenIcon,
+        });
+        this.markerList.push(marker);
+        marker.addTo(this.map);
+        // this.getHotelInfo(Number(element.taxId), marker);
+        if (this.lang == 'GEO') {
+          let hrGeo = `http://br.geostat.ge/register_geo/index.php?action=enterprizes&srch1=${element.taxId}`;
+          marker.bindPopup(
+            element.inn_Name +
+              '<br/>' +
+              `<center><a target="_blank" href=${hrGeo}>ინფო</a></center>`
+          );
+        }
+        if (this.lang == 'ENG') {
+          let hrEn = `http://br.geostat.ge/register_geo/index.php?action=enterprizes&srch1=${element.taxId}&lang=en`;
 
-        marker.bindPopup(
-          'Identification Code: ' +
-            element.taxId +
-            '<br/>' +
-            `<center><a target="_blank" href=${hrEn}>Info</a></center>`
-        );
+          marker.bindPopup(
+            element.inn_Name +
+              '<br/>' +
+              `<center><a target="_blank" href=${hrEn}>Info</a></center>`
+          );
+        }
       }
-    });
+    );
   }
 
   checkUncheckAll(event: any) {
