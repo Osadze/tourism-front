@@ -132,7 +132,7 @@ export class HtHotelsGeorgiaComponent implements AfterViewInit, OnDestroy {
         });
 
         let marker = L.marker([element.lat, element.lng], {
-          title: element.taxId,
+          title: element.inn_Name,
           icon: greenIcon,
         });
         this.markerList.push(marker);
